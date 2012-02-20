@@ -21,48 +21,66 @@ public class Verbs{
 		else if (i == "southwest" || i == "sw") {southwest();}
 		else if (i == "up" || i == "u") {up();}
 		else if (i == "down" || i == "d") {down();}
+		else if (i == "use") {use(words);}
+		else if (i == "examine" || i == "e") {examine(words);}
+		else if (i == "look" || i == "l") {look();}
 		else {nope();}
 	}
 	
 	public void north(){
-		
+		Exe.z++;
 	}
 
 	public void south(){
-		
-
+		Exe.z--;
 	}
 
 	public void east(){
-		
+		Exe.x++;
 	}
 
 	public void west(){
-		
+		Exe.x--;
 	}
 
 	public void northeast(){
-		
+		Exe.z++;
+		Exe.x++;
 	}
 
 	public void northwest(){
-		
+		Exe.z++;
+		Exe.x--;
 	}
 
 	public void southeast(){
-		
+		Exe.z--;
+		Exe.x++;
 	}
 
 	public void southwest(){
-		
+		Exe.z--;
+		Exe.x--;
 	}
 
 	public void up(){
-		
+		Exe.y++;
 	}
 
 	public void down(){
+		Exe.y--;
+	}
+
+	public void use(String i){
 		
+	}
+
+	public void examine(String i){
+		System.out.println(Items.getItem(i).details);
+	}
+
+	public void look(){
+		System.out.println(Exe.world[Exe.x][Exe.y][Exe.z].examine;)
 	}
 
 	public void nope(){
