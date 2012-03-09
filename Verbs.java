@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Verbs{
 
-	public void parse(String input){   //prints space, finds the verb
+	public static void parse(String input){   //prints space, finds the verb
 
 		Scanner scan = new Scanner(input.toLowerCase());
 		String i = scan.next(); //first word
@@ -32,71 +32,71 @@ public class Verbs{
 		else {nope();}
 	}
 	
-	public void north(){
+	public static void north(){
 		Exe.z++;
 	}
 
-	public void south(){
+	public static void south(){
 		Exe.z--;
 	}
 
-	public void east(){
+	public static void east(){
 		Exe.x++;
 	}
 
-	public void west(){
+	public static void west(){
 		Exe.x--;
 	}
 
-	public void northeast(){
+	public static void northeast(){
 		Exe.z++;
 		Exe.x++;
 	}
 
-	public void northwest(){
+	public static void northwest(){
 		Exe.z++;
 		Exe.x--;
 	}
 
-	public void southeast(){
+	public static void southeast(){
 		Exe.z--;
 		Exe.x++;
 	}
 
-	public void southwest(){
+	public static void southwest(){
 		Exe.z--;
 		Exe.x--;
 	}
 
-	public void up(){
+	public static void up(){
 		Exe.y++;
 	}
 
-	public void down(){
+	public static void down(){
 		Exe.y--;
 	}
 
-	public void use(String i){
+	public static void use(String i){
 		
 	}
 
-	public void talk(String i){
+	public static void talk(String i){
 		Items.getItem(i).talk();
 	}
 
-	public void examine(String i){
-		System.out.println(Items.getItem(i).description);
+	public static void examine(String i){
+		System.out.println(Items.getItem(i).getDescription());
 	}
 
-	public void look(){
+	public static void look(){
 		System.out.println(Exe.world[Exe.x][Exe.y][Exe.z].examine);
 	}
 
-	public void inventory(){
+	public static void inventory(){
 		System.out.println(player.printinv());
 	}
 
-	public void nope(){
+	public static void nope(){
 		System.out.println("Huh?");
 	}
 	

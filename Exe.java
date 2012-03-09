@@ -3,32 +3,28 @@ import java.util.Scanner;
 
 public class Exe
 {
-	public int x = 5;
-	public int y = 5;
-	public int z = 5;
-	public Room[][][] world = new Room[10][10][10];
-    public String chName = "";
+	public static int x = 5;
+	public static int y = 5;
+	public static int z = 5;
+	public static Room[][][] world = new Room[10][10][10];
+    public static String chName = "";
 
 	public static void main (String[] args)
 	{
-		System.out.println("Hello there. Welcome to Isaac and Alison's Glorious
-        Text Adventure For Great Victory (TM & C)! To get started, please type your
-        character's name.")
+		System.out.println("Hello there. Welcome to Isaac and Alison's Glorious Text Adventure For Great Victory (TM & C)! To get started, please type your character's name.");
         chName = readInput();
-        System.out.println("Why hello there " + chName + ". Why don't you check
-        out your surroundings by typing 'look'?");
-		Verbs.parse(System.in);
-        System.out.println("Wow! What a cool place. Why don't you examine the
-        box? Type 'examine box' to take a closer look at the box.");
-        Verbs.parse(System.in);
+        System.out.println("Why hello there " + chName + ". Why don't you check out your surroundings by typing 'look'?");
+		Verbs.parse(System.in.toString());
+        System.out.println("Wow! What a cool place. Why don't you examine the box? Type 'examine box' to take a closer look at the box.");
+        Verbs.parse(System.in.toString());
         while(true){
-            Verbs.parse(System.in);
+            Verbs.parse(System.in.toString());
         }
 	}
 
-	public String readInput ()
+	public static String readInput ()
 	{
-        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in.toString());
         String input = "";
 
         while (scan.hasNext())
@@ -42,7 +38,7 @@ public class Exe
     // File should be in the following format:
     // 
     
-    public void readFile (String pathname)
+    public static void readFile (String pathname)
     {
     	try {
             Scanner scanPlace = new Scanner(new File (pathname));
@@ -68,12 +64,12 @@ public class Exe
         }
     }
     
-    public void saveFile ()
+    public static void saveFile ()
     {
         
     }     
  
-	public void addRoom (Room r)
+	public static void addRoom (Room r)
 	{
 		
 	}

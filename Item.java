@@ -5,11 +5,11 @@ public class Item
 	String description;
 	String shortDescription;
 	String useEffect;
-	Item [] usedWith;
+	Item[] usedWith;
 	int id;
 
 	public Item (String itemName, String itemShortName, String itemDescription,
-	String itemShortDescription, String itemUseEffect, Item [] itemUsedWith,
+	String itemShortDescription, String itemUseEffect, Item[] itemUsedWith,
 	int itemID)
 	{
 		this.name = itemName;
