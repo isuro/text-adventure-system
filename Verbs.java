@@ -24,6 +24,7 @@ public class Verbs{
 		else if (i == "use") {use(words);}
 		else if (i == "examine" || i == "e") {examine(words);}
 		else if (i == "look" || i == "l") {look();}
+		else if (i == "exit" || i == "quit") {System.exit(0);}
 		else {nope();}
 	}
 	

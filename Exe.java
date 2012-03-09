@@ -12,15 +12,18 @@ public class Exe
 	public static void main (String[] args)
 	{
 		System.out.println("Hello there. Welcome to Isaac and Alison's Glorious
-        Text Adventure For Great Victory! To get started, please type your
+        Text Adventure For Great Victory (TM & C)! To get started, please type your
         character's name.")
         chName = readInput();
         System.out.println("Why hello there " + chName + ". Why don't you check
         out your surroundings by typing 'look'?");
 		Verbs.parse(System.in);
         System.out.println("Wow! What a cool place. Why don't you examine the
-        box? Type 'examine' to take a closer look at the box.");
-        Verbs.parse(System.in);			
+        box? Type 'examine box' to take a closer look at the box.");
+        Verbs.parse(System.in);
+        while(true){
+            Verbs.parse(System.in);
+        }
 	}
 
 	public String readInput ()
