@@ -76,7 +76,7 @@ public class Verbs{
 	}
 
 	public void examine(String i){
-		System.out.println(Items.getItem(i).details);
+		System.out.println(Items.getItem(i).description);
 	}
 
 	public void look(){

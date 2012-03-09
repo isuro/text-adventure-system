@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class Exe
@@ -6,12 +7,20 @@ public class Exe
 	public int y = 5;
 	public int z = 5;
 	public Room[][][] world = new Room[10][10][10];
+    public String chName = "";
 
 	public static void main (String[] args)
 	{
-		
-		Verb.look();
-		Verb.parse(new Scanner.toString());			
+		System.out.println("Hello there. Welcome to Isaac and Alison's Glorious
+        Text Adventure For Great Victory! To get started, please type your
+        character's name.")
+        chName = readInput();
+        System.out.println("Why hello there " + chName + ". Why don't you check
+        out your surroundings by typing 'look'?");
+		Verbs.parse(System.in);
+        System.out.println("Wow! What a cool place. Why don't you examine the
+        box? Type 'examine' to take a closer look at the box.");
+        Verbs.parse(System.in);			
 	}
 
 	public String readInput ()
@@ -27,29 +36,38 @@ public class Exe
         	return null;	
     } 
     
+    // File should be in the following format:
+    // 
+    
     public void readFile (String pathname)
     {
     	try {
             Scanner scanPlace = new Scanner(new File (pathname));
             Scanner scanItems = new Scanner(new File (pathname)).useDelimiter("\\d");
 
-            Room currentLocation = new Room();
+            int currentLocationX;
+            int currentLocationY;
+            int currentLocationZ;
+            int numCurrentItems;
+            Item [] currentItems = new Item [numCurrentItems];
              
-            currentLocation = scanPlace.nextInt();
-            scanItems = scanItems.next();
+            currentLocationX = scanPlace.nextInt();
+            currentLocationY = scanPlace.nextInt();
+            currentLocationZ = scanPlace.nextInt();
+            numCurrentItems = scanItems.nextInt();
 
-            for (int i = 0; i < numEdges; i++) 
-                    edges[i] = new Edge (scanEdges.next(), scanEdges.next(), scanEdges.nextInt());
-            while (scanNodes.hasNext())
-            {
-                    if (nodesscanNodes.next())
-                        nodes += scanNodes.next();
-              }
+            for (int i = 0; i < numCurrentItems; i++) 
+                currentItems[i] = new Item (scanItems.next());
             }
         catch (FileNotFoundException ex)
         {
             System.out.println("File not found.");
         }
+    }
+    
+    public void saveFile ()
+    {
+        
     }     
  
 	public void addRoom (Room r)
