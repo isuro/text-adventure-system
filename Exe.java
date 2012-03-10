@@ -22,6 +22,10 @@ public class Exe
         }
 	}
 
+    public static String getChName(){
+        return chName;
+    }
+
     public static int[] getCoords(){
         return new int[] {x, y, z};
     }
@@ -82,7 +86,7 @@ public class Exe
             int currentLocationY;
             int currentLocationZ;
             int numCurrentItems;
-            Item [] currentItems = new Item [numCurrentItems];
+            Item[] currentItems = new Item [numCurrentItems];
              
             currentLocationX = scanPlace.nextInt();
             currentLocationY = scanPlace.nextInt();
