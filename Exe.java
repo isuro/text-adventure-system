@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Exe
 {
-	public static int x = 5;
-	public static int y = 5;
-	public static int z = 5;
+	static int x = 5;
+	static int y = 5;
+	static int z = 5;
 	public static Room[][][] world = new Room[10][10][10];
     public static String chName = "";
 
@@ -22,7 +22,41 @@ public class Exe
         }
 	}
 
-	public static String readInput ()
+    public static int[] getCoords(){
+        return [this.x,this.y,this.z]
+    }
+
+    public static int getX(){
+        return this.x;
+    }
+
+    public static int getY(){
+        return this.y;
+    }
+
+    public static int getZ(){
+        return this.z
+    }
+
+    public static void setCoords(int[] coords){
+        this.x = coords[0];
+        this.y = coords[1];
+        this.z = coords[2];
+    }
+	
+    public static void setX(int x){
+        this.x = x;
+    }
+
+    public static void setY(int y){
+        this.y = y;
+    }
+
+    public static void setZ(int z){
+        this.z = z;
+    }
+
+    public static String readInput ()
 	{
         Scanner scan = new Scanner(System.in.toString());
         String input = "";

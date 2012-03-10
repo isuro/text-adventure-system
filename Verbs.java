@@ -33,47 +33,49 @@ public class Verbs{
 	}
 	
 	public static void north(){
-		Exe.z++;
+		Exe.setZ(Exe.getZ()++);
 	}
 
 	public static void south(){
-		Exe.z--;
+		Exe.setZ(Exe.getZ()--);
 	}
 
 	public static void east(){
-		Exe.x++;
+		Exe.setX(Exe.getX()++);
 	}
 
 	public static void west(){
-		Exe.x--;
+		Exe.setX(Exe.getX()--);
 	}
 
 	public static void northeast(){
+		int[] xyz = Exe.getCoords();
+		Exe.setCoords([xyz[0]++, xyz[1], xyz[2]++);
 		Exe.z++;
 		Exe.x++;
 	}
 
 	public static void northwest(){
-		Exe.z++;
-		Exe.x--;
+		int[] xyz = Exe.getCoords();
+		Exe.setCoords([xyz[0]--, xyz[1], xyz[2]++);
 	}
 
 	public static void southeast(){
-		Exe.z--;
-		Exe.x++;
+		int[] xyz = Exe.getCoords();
+		Exe.setCoords([xyz[0]++, xyz[1], xyz[2]--);
 	}
 
 	public static void southwest(){
-		Exe.z--;
-		Exe.x--;
+		int[] xyz = Exe.getCoords();
+		Exe.setCoords([xyz[0]--, xyz[1], xyz[2]--);
 	}
 
 	public static void up(){
-		Exe.y++;
+		Exe.setY(Exe.getY()++);
 	}
 
 	public static void down(){
-		Exe.y--;
+		Exe.setY(Exe.getY()--);
 	}
 
 	public static void use(String i){
