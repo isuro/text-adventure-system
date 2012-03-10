@@ -1,12 +1,12 @@
 public class Item
 {
-	String name;
-	String shortName;
-	String description;
-	String shortDescription;
-	String useEffect;
-	Item[] usedWith;
-	int id;
+	private String name;
+	private String shortName;
+	private String description;
+	private String shortDescription;
+	private String useEffect;
+	private Item[] usedWith;
+	private int id;
 
 	public Item (String itemName, String itemShortName, String itemDescription,
 	String itemShortDescription, String itemUseEffect, Item[] itemUsedWith,
