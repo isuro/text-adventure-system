@@ -14,13 +14,13 @@ public class Verbs{
 		//The following act on the verb, passing arguments if necessary
 		//The string 'words' contains any arguments,
 		if (i == "north" || i == "n") {north();}
-		else if (i == "south" || i == "s") {south();}
-		else if (i == "east" || i == "e") {east();}
-		else if (i == "west" || i == "w") {west();}
 		else if (i == "northeast" || i == "ne") {northeast();}
-		else if (i == "northwest" || i == "nw") {northwest();}
+		else if (i == "east" || i == "e") {east();}
 		else if (i == "southeast" || i == "se") {southeast();}
+		else if (i == "south" || i == "s") {south();}
 		else if (i == "southwest" || i == "sw") {southwest();}
+		else if (i == "west" || i == "w") {west();}
+		else if (i == "northwest" || i == "nw") {northwest();}
 		else if (i == "up" || i == "u") {up();}
 		else if (i == "down" || i == "d") {down();}
 		else if (i == "use") {use(words);}
@@ -37,9 +37,9 @@ public class Verbs{
 		Exe.setZ(Z++);
 	}
 
-	public static void south(){
-		int Z = Exe.getZ();
-		Exe.setZ(Z--);
+	public static void northeast(){
+		int[] xyz = Exe.getCoords();
+		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]++});
 	}
 
 	public static void east(){
@@ -47,29 +47,29 @@ public class Verbs{
 		Exe.setX(X++);
 	}
 
-	public static void west(){
-		int X = Exe.getX();
-		Exe.setX(X--);
-	}
-
-	public static void northeast(){
-		int[] xyz = Exe.getCoords();
-		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]++});
-	}
-
-	public static void northwest(){
-		int[] xyz = Exe.getCoords();
-		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]++});
-	}
-
 	public static void southeast(){
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]--});
 	}
 
+	public static void south(){
+		int Z = Exe.getZ();
+		Exe.setZ(Z--);
+	}
+
 	public static void southwest(){
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]--});
+	}
+
+	public static void west(){
+		int X = Exe.getX();
+		Exe.setX(X--);
+	}
+
+	public static void northwest(){
+		int[] xyz = Exe.getCoords();
+		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]++});
 	}
 
 	public static void up(){
