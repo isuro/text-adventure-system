@@ -23,37 +23,37 @@ public class Exe
 	}
 
     public static int[] getCoords(){
-        return [this.x,this.y,this.z]
+        return new int[] {x, y, z};
     }
 
     public static int getX(){
-        return this.x;
+        return x;
     }
 
     public static int getY(){
-        return this.y;
+        return y;
     }
 
     public static int getZ(){
-        return this.z
+        return z;
     }
 
     public static void setCoords(int[] coords){
-        this.x = coords[0];
-        this.y = coords[1];
-        this.z = coords[2];
+        x = coords[0];
+        y = coords[1];
+        z = coords[2];
     }
 	
     public static void setX(int x){
-        this.x = x;
+        x = x;
     }
 
     public static void setY(int y){
-        this.y = y;
+        y = y;
     }
 
     public static void setZ(int z){
-        this.z = z;
+        z = z;
     }
 
     public static String readInput ()

@@ -33,49 +33,53 @@ public class Verbs{
 	}
 	
 	public static void north(){
-		Exe.setZ(Exe.getZ()++);
+		int Z = Exe.getZ();
+		Exe.setZ(Z++);
 	}
 
 	public static void south(){
-		Exe.setZ(Exe.getZ()--);
+		int Z = Exe.getZ();
+		Exe.setZ(Z--);
 	}
 
 	public static void east(){
-		Exe.setX(Exe.getX()++);
+		int X = Exe.getX();
+		Exe.setX(X++);
 	}
 
 	public static void west(){
-		Exe.setX(Exe.getX()--);
+		int X = Exe.getX();
+		Exe.setX(X--);
 	}
 
 	public static void northeast(){
 		int[] xyz = Exe.getCoords();
-		Exe.setCoords([xyz[0]++, xyz[1], xyz[2]++);
-		Exe.z++;
-		Exe.x++;
+		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]++});
 	}
 
 	public static void northwest(){
 		int[] xyz = Exe.getCoords();
-		Exe.setCoords([xyz[0]--, xyz[1], xyz[2]++);
+		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]++});
 	}
 
 	public static void southeast(){
 		int[] xyz = Exe.getCoords();
-		Exe.setCoords([xyz[0]++, xyz[1], xyz[2]--);
+		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]--});
 	}
 
 	public static void southwest(){
 		int[] xyz = Exe.getCoords();
-		Exe.setCoords([xyz[0]--, xyz[1], xyz[2]--);
+		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]--});
 	}
 
 	public static void up(){
-		Exe.setY(Exe.getY()++);
+		int Y = Exe.getY();
+		Exe.setY(Y++);
 	}
 
 	public static void down(){
-		Exe.setY(Exe.getY()--);
+		int Y = Exe.getY();
+		Exe.setY(Y--);
 	}
 
 	public static void use(String i){
