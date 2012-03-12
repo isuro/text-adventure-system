@@ -7,6 +7,8 @@ public class Item
 	private String useEffect;
 	private Item[] usedWith;
 	private int id;
+	private boolean canTalk;
+	private String[][] dialogue;
 
 	public Item (String itemName, String itemShortName, String itemDescription,
 	String itemShortDescription, String itemUseEffect, Item[] itemUsedWith,
@@ -56,6 +58,15 @@ public class Item
 		return id;
 	}
 
+	public boolean getCanTalk()
+	{
+		return canTalk;
+	}
+
+	public String[][] getDialogue(int x, int y){
+		return dialogue;
+	}
+
 	public void setName (String n)
 	{
 		name = n;
@@ -84,6 +95,12 @@ public class Item
 	public void setInInventory (int i)
 	{
 		id = i;
+	}
+
+	public void setDialogue(String[][] d)
+	{
+		dialogue = d;
+		canTalk = true;
 	}
 
 }
