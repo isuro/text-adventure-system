@@ -1,24 +1,28 @@
 public class Item
 {
-	String name;
-	String shortName;
-	String description;
-	String shortDescription;
-	String useEffect;
-	Item [] usedWith;
-	int id;
+	private String name;
+	private String shortName;
+	private String description;
+	private String shortDescription;
+	private String useEffect;
+	private Item[] usedWith;
+	private int id;
+	private boolean canTalk;
+	private String[][] dialogue;
 
 	public Item (String itemName, String itemShortName, String itemDescription,
-	String itemShortDescription, String itemUseEffect, Item [] itemUsedWith,
-	int itemID)
+	String itemShortDescription, String itemUseEffect, Item[] itemUsedWith,
+	int itemID, boolean itemCanTalk, String [][] itemDialogue)
 	{
-		this.name = itemName;
-		this.shortName = itemShortName;
-		this.description =  itemDescription;
-		this.shortDescription = itemShortDescription;
-		this.useEffect = itemUseEffect;
-		this.usedWith = itemUsedWith;
-		this.id = itemID;
+		name = itemName;
+		shortName = itemShortName;
+		description =  itemDescription;
+		shortDescription = itemShortDescription;
+		useEffect = itemUseEffect;
+		usedWith = itemUsedWith;
+		id = itemID;
+		canTalk = itemCanTalk;
+		dialogue = itemDialogue;
 	}
 
 	public Item getItem (Item i)
@@ -56,6 +60,16 @@ public class Item
 		return id;
 	}
 
+	public boolean getCanTalk()
+	{
+		return canTalk;
+	}
+
+	public String[][] getDialogue(int x, int y)
+	{
+		return dialogue;
+	}
+
 	public void setName (String n)
 	{
 		name = n;
@@ -86,5 +100,10 @@ public class Item
 		id = i;
 	}
 
-}
+	public void setDialogue(String[][] d)
+	{
+		dialogue = d;
+		canTalk = true;
+	}
 
+}

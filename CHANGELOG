@@ -1,0 +1,13 @@
+Done:
+Implement Item
+Add NPC characteristics to Item
+
+In Progress:
+Implement Verbs
+File read-in
+Main executable
+
+Not Yet Started:
+Implement Room
+Create ItemBag
+Separate executable from world creation
