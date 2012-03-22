@@ -15,8 +15,8 @@ public class ItemBag
 
 	public void addItem(Item i)
 	{
-		if (items.isFull())
-			items.increaseCapacity(INCREMENT);
+		if (isFull())
+			increaseCapacity(INCREMENT);
 		else
 		{
 			i = items[numberOfItems];
@@ -39,5 +39,18 @@ public class ItemBag
         for(int i = 0; i < old.length; i++ )
             items[ i ] = old[ i ]; 
 	}
+
+	public void print()
+    { 
+        if (numberOfItems == 0)
+            System.out.println("\n You have no items :(");
+        else
+        {
+            System.out.println("\n You currently have "+ numberOfItems +" items:");
+            for (int i = 0; i < numberOfItems; i++)
+                System.out.println(items[i]+ " ");
+            System.out.println();
+        }                
+    }
 
 }
