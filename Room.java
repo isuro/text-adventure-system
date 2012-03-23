@@ -18,6 +18,8 @@ public class Room{
 		this.description = description;
 	}
 
-	
+	public String examine(){
+		return description;
+	} 
 
 }
