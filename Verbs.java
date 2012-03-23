@@ -87,15 +87,15 @@ public class Verbs{
 	}
 
 	public static void talk(String i){
-		Items.getItem(i).talk();
+		ItemBag.getItem(i).talk();
 	}
 
 	public static void examine(String i){
-		System.out.println(Items.getItem(i).getDescription());
+		System.out.println(ItemBag.getItem(i).getDescription());
 	}
 
 	public static void look(){
-		System.out.println(Exe.world[Exe.x][Exe.y][Exe.z].examine);
+		System.out.println(Exe.world[Exe.x][Exe.y][Exe.z].examine());
 	}
 
 	public static void inventory(){
