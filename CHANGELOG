@@ -1,13 +1,14 @@
 Done:
 Implement Item
 Add NPC characteristics to Item
+Create ItemBag
 
 In Progress:
 Implement Verbs
+Complete Implementation of ItemBag
 File read-in
 Main executable
 
 Not Yet Started:
 Implement Room
-Create ItemBag
 Separate executable from world creation
