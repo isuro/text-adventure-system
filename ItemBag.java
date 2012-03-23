@@ -40,7 +40,7 @@ public class ItemBag
             items[ i ] = old[ i ]; 
 	}
 
-	public void print()
+	public void printItems()
     { 
         if (numberOfItems == 0)
             System.out.println("\n You have no items :(");
