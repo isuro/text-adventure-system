@@ -76,10 +76,11 @@ public class Exe
         	return null;	
     } 
     
-    // File should be in the following format:
-    // 
-    
-    public static void readFile (String pathname)
+    /**
+    * File should be in the following format:
+    * 
+    */    
+    public static void readSaveFile (String pathname)
     {
     	try {
             Scanner scanPlace = new Scanner(new File (pathname));

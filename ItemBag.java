@@ -6,6 +6,7 @@ public class ItemBag
 	private int numberOfItems;
 	private final int INCREMENT;
 
+    //Creates an empty instance of ItemBag
 	public ItemBag()
 	{
 		items = new Item [0];
@@ -40,6 +41,7 @@ public class ItemBag
             items[ i ] = old[ i ]; 
 	}
 
+	//prints items
 	public void printItems()
     { 
         if (numberOfItems == 0)
