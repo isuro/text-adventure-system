@@ -91,7 +91,7 @@ public class Exe
             int currentLocationZ;
             int numCurrentItems;
             ItemBag currentItems = new ItemBag();
-            currentItems.numberOfItems = numCurrentItems;
+            // currentItems.numberOfItems = numCurrentItems; Is this needed?
              
             currentLocationX = scanPlace.nextInt();
             currentLocationY = scanPlace.nextInt();
@@ -99,7 +99,7 @@ public class Exe
             numCurrentItems = scanItems.nextInt();
 
             for (int i = 0; i < numCurrentItems; i++) 
-                currentItems[i] = new Item (scanItems.next());
+                currentItems.addItem(new Item(scanItems.next()));
             }
         catch (FileNotFoundException ex)
         {

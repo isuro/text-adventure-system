@@ -99,7 +99,7 @@ public class Verbs{
 	}
 
 	public static void inventory(){
-		System.out.println(player.printinv());
+		System.out.println(Player.getInv().printItems());
 	}
 
 	public static void nope(){
