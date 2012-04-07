@@ -87,11 +87,28 @@ public class Verbs{
 	}
 
 	public static void talk(String i){
-		ItemBag.getItem(i).talk();
+		try {
+			if(Player.getInv().getItem(i).getCanTalk()) {
+				Player.getInv().getItem(i).talk();
+			}
+			else {
+				System.out.println("No response...");
+			}
+		}
+		catch (IllegalArgumentException ex)
+		{
+			nope();
+		}
 	}
 
 	public static void examine(String i){
-		System.out.println(ItemBag.getItem(i).getDescription());
+		try{
+			System.out.println(ItemBag.getItem(i).getDescription());
+		}
+		catch (IllegalArgumentException ex)
+		{
+			nope();
+		}
 	}
 
 	public static void look(){
@@ -99,7 +116,7 @@ public class Verbs{
 	}
 
 	public static void inventory(){
-		System.out.println(Player.getInv().printItems());
+		Player.getInv().printItems();
 	}
 
 	public static void nope(){
