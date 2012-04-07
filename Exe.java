@@ -79,7 +79,26 @@ public class Exe
     /**
     * File should be in the following format:
     * 
-    */    
+    * "TOTALNUMBEROFROOMS 3
+    *  1 1 1 1
+    *  This is a description of room 1.
+    *  F F F F T F
+    *  2 1 2 1
+    *  This is a description of room 2.
+    *  F F T F F F
+    *  3 2 2 1
+    *  This is a description of room 3.
+    *  F F T F F F
+    *  ...
+    *  1000 x y z
+    *  This is a description of room 1000.
+    *  NExit SExit EExit WExit UpExit DownExit"
+    *  
+    *  The first number is the room ID, and the last three numbers are the room's
+    *  x, y, and z coordinates, respectively. Worlds cannot exceed 1000 rooms 
+    *  (i.e. a 10x10x10 three dimension array).
+    *  
+    */
     public static void readSaveFile (String pathname)
     {
     	try {
