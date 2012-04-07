@@ -25,11 +25,6 @@ public class Item
 		dialogue = itemDialogue;
 	}
 
-	public Item getItem (Item i)
-	{
-		return i;
-	}
-
 	public String getName ()
 	{
 		return name;
@@ -104,6 +99,11 @@ public class Item
 	{
 		dialogue = d;
 		canTalk = true;
+	}
+
+	public void talk()
+	{
+
 	}
 
 }

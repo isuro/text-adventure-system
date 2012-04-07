@@ -68,8 +68,8 @@ public class ItemBag
 		for(int i = 0; i<numberOfItems; i++)
 			if(items[i].getName() == name)
 				return items[i];
-		
 
+		throw new IllegalArgumentException("No such item!");
 	}
 
 }
