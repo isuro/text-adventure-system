@@ -1,19 +1,16 @@
+import java.io.*;
+import java.util.Scanner;
+
+
 /**
-* World class
-*
 * World describes the world of the game, including the array of rooms contained
 * within the world. It also includes variables such as start location, goal
 * location, and general world structure. It implements the singleton design 
 * pattern, as there is only ever one instance of World in any given game.
-
 * @author Alison Mayer
 * @date April 4, 2012
 * @version 1.1
 */
-
-import java.io.*;
-import java.util.Scanner;
-
 public class World
 {
 	private String roomPathName;
