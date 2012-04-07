@@ -1,15 +1,25 @@
 public class Player
 {
 	private ItemBag inventory = new ItemBag();
-	private String name;
+	private int score;
 
-	public Player(String name)
+	private Player()
 	{
-		this.name = name;
+		score = 0;
 	}
 
 	public ItemBag getInv()
 	{
 		return this.inventory;
+	}
+
+	public void changeScore(int x)
+	{
+		score+=x;
+	}
+
+	public void printScore()
+	{
+		System.out.println("Your score is " + score);
 	}
 }
