@@ -25,6 +25,11 @@ public class Item
 		dialogue = itemDialogue;
 	}
 
+	public Item (String data)
+	{
+		
+	}
+
 	public String getName ()
 	{
 		return name;

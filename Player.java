@@ -1,24 +1,24 @@
 public class Player
 {
-	private ItemBag inventory = new ItemBag();
-	private int score;
+	private static ItemBag inventory = new ItemBag();
+	private static int score;
 
 	private Player()
 	{
 		score = 0;
 	}
 
-	public ItemBag getInv()
+	public static ItemBag getInv()
 	{
 		return this.inventory;
 	}
 
-	public void changeScore(int x)
+	public static void changeScore(int x)
 	{
 		score+=x;
 	}
 
-	public void printScore()
+	public static void printScore()
 	{
 		System.out.println("Your score is " + score);
 	}
