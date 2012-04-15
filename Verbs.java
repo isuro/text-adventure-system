@@ -2,8 +2,11 @@ import java.util.Scanner;
 
 public class Verbs{
 
-	public static void parse(String input){   //prints space, finds the verb
-
+	/**
+	* Prints space, finds the verb.
+	*/
+	public static void parse(String input)
+	{
 		Scanner scan = new Scanner(input.toLowerCase());
 		String i = scan.next(); //first word
 		String words = ""; //remaining words
@@ -32,61 +35,73 @@ public class Verbs{
 		else {nope();}
 	}
 	
-	public static void north(){
+	public static void north()
+	{
 		int Z = Exe.getZ();
 		Exe.setZ(Z++);
 	}
 
-	public static void northeast(){
+	public static void northeast()
+	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]++});
 	}
 
-	public static void east(){
+	public static void east()
+	{
 		int X = Exe.getX();
 		Exe.setX(X++);
 	}
 
-	public static void southeast(){
+	public static void southeast()
+	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]--});
 	}
 
-	public static void south(){
+	public static void south()
+	{
 		int Z = Exe.getZ();
 		Exe.setZ(Z--);
 	}
 
-	public static void southwest(){
+	public static void southwest()
+	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]--});
 	}
 
-	public static void west(){
+	public static void west()
+	{
 		int X = Exe.getX();
 		Exe.setX(X--);
 	}
 
-	public static void northwest(){
+	public static void northwest()
+	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]++});
 	}
 
-	public static void up(){
+	public static void up()
+	{
 		int Y = Exe.getY();
 		Exe.setY(Y++);
 	}
 
-	public static void down(){
+	public static void down()
+	{
 		int Y = Exe.getY();
 		Exe.setY(Y--);
 	}
 
-	public static void use(String i){
+	public static void use(String i)
+	{
 		
 	}
 
-	public static void talk(String i){
+	public static void talk(String i)
+	{
 		try {
 			if(Player.getInv().getItem(i).getCanTalk()) {
 				Player.getInv().getItem(i).talk();
@@ -101,7 +116,8 @@ public class Verbs{
 		}
 	}
 
-	public static void examine(String i){
+	public static void examine(String i)
+	{
 		try{
 			System.out.println(ItemBag.getItem(i).getDescription());
 		}

@@ -31,7 +31,6 @@ public class World
 	* Returns the singleton World to user. If there is no instance of World,
 	* constructs a new World.
 	* 
-	* @param none
 	* @return world, the instance of World
 	*/
 	public static World getWorld() 
@@ -47,7 +46,7 @@ public class World
 	*
 	*
 	*/
-	private void setWorldRooms()
+	private static void setWorldRooms()
 	{
 		roomPathName = "C:\\Users\\Alison\\Documents\\Clark\\Computer Science"+
 			"\\SoftwareEngineeing\\text-adventure-system\\ExampleRooms1.txt";
@@ -81,7 +80,7 @@ public class World
     *  (i.e. a 10x10x10 three dimension array).
     *  
     */
-    private void readRoomFile (String pathname)
+    private static void readRoomFile (String pathname)
     {
         try {
             Scanner scanLocation = new Scanner(new File (pathname));

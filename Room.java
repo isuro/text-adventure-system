@@ -18,16 +18,15 @@ public class Room{
 		this.description = description;
 	}
 
-	public void setExits(boolean northExit, boolean southExit, boolean eastExit,
-		boolean westExit, boolean upExit, boolean downExit)
-		{
-			this.exits[0] = northExit;
-			this.exits[1] = southExit;
-			this.exits[2] = eastExit;
-			this.exits[3] = westExit;
-			this.exits[4] = upExit;
-			this.exits[5] = downExit;
-		}
+	public void setExits(boolean northExit, boolean southExit, boolean eastExit, boolean westExit, boolean upExit, boolean downExit)
+	{
+		this.exits[0] = northExit;
+		this.exits[1] = southExit;
+		this.exits[2] = eastExit;
+		this.exits[3] = westExit;
+		this.exits[4] = upExit;
+		this.exits[5] = downExit;
+	}
 
 	public void setAExit(boolean exit, int i)
 	{
