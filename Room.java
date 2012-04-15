@@ -28,17 +28,17 @@ public class Room{
 		this.exits[5] = downExit;
 	}
 
-	public void setAExit(boolean exit, int i)
+	public void setAnExit(boolean exit, int i)
 	{
 		this.exits[i] = exit;
 	}
 
-	public int getXCoord ()
+	public int getXCoord()
 	{
 		return xCoord;
 	}
 
-	public int getYCoord ()
+	public int getYCoord()
 	{
 		return yCoord;
 	}

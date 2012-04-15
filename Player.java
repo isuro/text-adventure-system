@@ -10,7 +10,7 @@ public class Player
 
 	public static ItemBag getInv()
 	{
-		return this.inventory;
+		return inventory;
 	}
 
 	public static void changeScore(int x)

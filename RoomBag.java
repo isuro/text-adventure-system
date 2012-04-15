@@ -72,7 +72,7 @@ public class RoomBag
         {
             System.out.println("\n There are currently "+ numberOfRooms +" rooms:");
             for (int i = 0; i < numberOfRooms; i++)
-                System.out.println(rooms[i]+ " ");
+                System.out.print(rooms[i]+ " ");
             System.out.println();
         }                
     }
