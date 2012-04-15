@@ -13,12 +13,13 @@ import java.util.Scanner;
 */
 public class World
 {
-	private String roomPathName;
+	private static String roomPathName;
 	private static Room[][][] worldRooms;
 	private static RoomBag roomArray;
 	private static int startLocationX;
 	private static int startLocationY;
 	private static int startLocationZ;
+    private static World world;
 
 	//private constructor; World implements a singleton design pattern
 	private World()
@@ -26,6 +27,10 @@ public class World
 		worldRooms = new Room[10][10][10];
 		setWorldRooms();
 	}
+
+    public static Room getRoom(int[] location){
+        return worldRooms
+    }
 
 	/**
 	* Returns the singleton World to user. If there is no instance of World,
@@ -48,13 +53,12 @@ public class World
 	*/
 	private static void setWorldRooms()
 	{
-		roomPathName = "C:\\Users\\Alison\\Documents\\Clark\\Computer Science"+
-			"\\SoftwareEngineeing\\text-adventure-system\\ExampleRooms1.txt";
+		roomPathName = "ExampleRooms1.txt";
 		readRoomFile(roomPathName);	
-		for (int i = 0; i < roomArray.numberOfRooms; i++)
-		{
-			worldRooms[roomArray.getARoom(i).getXCoord][roomArray.getARoom(i).getYCoord][roomArray.getARoom(i).getZCoord] = new Room ();
-		}
+		//for (int i = 0; i < roomArray.numberOfRooms; i++)
+		//{
+		//	worldRooms[roomArray.getARoom(i).getXCoord()][roomArray.getARoom(i).getYCoord()][roomArray.getARoom(i).getZCoord()] = new Room ();
+		//}
 	}
 	
 	/**
@@ -107,7 +111,7 @@ public class World
                 for (int j = 0; j < 6; j++)
                     {
                     if (scanExits.next() == "T")
-                        roomArray.getARoom(i).setAExit(true, j);    
+                        roomArray.getARoom(i).setAnExit(true, j);    
                     }
                 }      
             }
