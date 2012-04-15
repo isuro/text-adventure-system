@@ -2,36 +2,38 @@ import java.util.Scanner;
 
 public class Verbs{
 
+	private static final String EOL = System.getProperty("line.separator");
+	
 	/**
-	* Prints space, finds the verb.
+	* Prints whitespace, finds the verb.
 	*/
 	public static void parse(String input)
 	{
 		Scanner scan = new Scanner(input.toLowerCase());
 		String i = scan.next(); //first word
 		String words = ""; //remaining words
-		while(scan.hasNext()){words+= scan.next();}
-		String eol = System.getProperty("line.separator");
-		System.out.println(eol+eol+eol);
+		while(scan.hasNext()){words+= scan.next() + " ";}
+		System.out.println(EOL+EOL);
 
 		//The following act on the verb, passing arguments if necessary
 		//The string 'words' contains any arguments,
-		if (i == "north" || i == "n") {north();}
-		else if (i == "northeast" || i == "ne") {northeast();}
-		else if (i == "east" || i == "e") {east();}
-		else if (i == "southeast" || i == "se") {southeast();}
-		else if (i == "south" || i == "s") {south();}
-		else if (i == "southwest" || i == "sw") {southwest();}
-		else if (i == "west" || i == "w") {west();}
-		else if (i == "northwest" || i == "nw") {northwest();}
-		else if (i == "up" || i == "u") {up();}
-		else if (i == "down" || i == "d") {down();}
-		else if (i == "use") {use(words);}
-		else if (i == "talk") {talk(words);}
-		else if (i == "examine" || i == "e") {examine(words);}
-		else if (i == "look" || i == "l") {look();}
-		else if (i == "inventory" || i == "i") {inventory();}
-		else if (i == "exit" || i == "quit") {System.exit(0);}
+		if (i.equals("north") || i.equals("n")) {north();}
+		else if (i.equals("northeast") || i.equals("ne")) {northeast();}
+		else if (i.equals("east") || i.equals("e")) {east();}
+		else if (i.equals("southeast") || i.equals("se")) {southeast();}
+		else if (i.equals("south") || i.equals("s")) {south();}
+		else if (i.equals("southwest") || i.equals("sw")) {southwest();}
+		else if (i.equals("west") || i.equals("w")) {west();}
+		else if (i.equals("northwest") || i.equals("nw")) {northwest();}
+		else if (i.equals("up") || i.equals("u")) {up();}
+		else if (i.equals("down") || i.equals("d")) {down();}
+		else if (i.equals("use")) {use(words);}
+		else if (i.equals("talk")) {talk(words);}
+		else if (i.equals("examine") || i.equals("e")) {examine(words);}
+		else if (i.equals("look") || i.equals("l")) {look();}
+		else if (i.equals("inventory") || i.equals("i")) {inventory();}
+		else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
+		else if (i.equals("help") || i.equals("?")) {help();}
 		else {nope();}
 	}
 	
@@ -118,8 +120,9 @@ public class Verbs{
 
 	public static void examine(String i)
 	{
-		try{
-			System.out.println(ItemBag.getItem(i).getDescription());
+		try
+		{
+			System.out.println(Player.getInv().getItem(i).getDescription());
 		}
 		catch (IllegalArgumentException ex)
 		{
@@ -128,11 +131,21 @@ public class Verbs{
 	}
 
 	public static void look(){
-		System.out.println(Exe.world[Exe.x][Exe.y][Exe.z].examine());
+		System.out.println(World.getRoom(int[x,y,z]).examine());
 	}
 
 	public static void inventory(){
 		Player.getInv().printItems();
+	}
+
+	public static void help(){
+		System.out.println(
+			"Here's what you can do: (type indicated letter or full word)" + EOL +
+			"You can go (n)orth, (s)outh, (e)ast, or (w)est." + EOL +
+			"Sometimes, you can even go (u)p or (d)own." + EOL +
+			"You can (use) an item, or (e)xamine one in your (i)nventory." + EOL +
+			"You can always take a (l)ook around, and if all else fails," + EOL +
+			"you can always (quit) and never, ever, ever come back.");
 	}
 
 	public static void nope(){

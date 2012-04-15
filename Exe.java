@@ -6,24 +6,32 @@ public class Exe
 	static int x = 5;
 	static int y = 5;
 	static int z = 5;
-	public static Room[][][] world = new Room[10][10][10];
+    public static int[][][] location;
     public static String chName = "";
+    public static final String EOL = System.getProperty("line.separator");
 
 	public static void main (String[] args)
 	{
-		System.out.println("Hello there. Welcome to Isaac and Alison's " +
-            "Glorious Text Adventure For Great Victory (TM & C)! To get " +
-            "started,`please type your character's name.");
+		System.out.println(
+            "Hello there. Welcome to Isaac and Alison's " + EOL +
+            "Glorious Text Adventure For Great Victory (TM & C)!" + EOL +
+            "To get started, please type your character's name.");
         chName = readInput();
-        System.out.println("Why hello there " + chName + ". Why don't you " +
+        System.out.println(
+            "Why hello there " + chName + ". Why don't you " + EOL +
             "check out your surroundings by typing 'look'?");
-		Verbs.parse(System.in.toString());
-        System.out.println("Wow! What a cool place. Why don't you examine " + 
-            "the box? Type 'examine box' to take a closer look at the box.");
-        Verbs.parse(System.in.toString());
-        while(true)
-            Verbs.parse(System.in.toString());
-	}
+		Verbs.parse(readInput());
+        System.out.println(
+            "Wow! What a cool place. Why don't you examine the" + EOL +
+            "box? Type 'examine box' to take a closer look at the box.");
+        Verbs.parse(readInput());
+        System.out.println("Alright, from here on you're on your own." + EOL +
+            "You can type 'help' or '?' to see a list of commands.");
+        while(true){
+            System.out.println();
+            Verbs.parse(readInput());
+        }
+    }
 
     public static String getChName(){
         return chName;
@@ -63,17 +71,21 @@ public class Exe
         z = z;
     }
 
-    public static String readInput ()
+    public static String readInput()
 	{
-        Scanner scan = new Scanner(System.in.toString());
-        String input = "";
+//      Scanner scan = new Scanner(System.in);
+//      String input = scan.nextLine();
+        return new Scanner(System.in).nextLine(); 
+//      return input;
 
-        while (scan.hasNext())
-        	input += scan.next();
-       	if (input != null)
-        	return input;
-        else
-        	return null;	
+//      while (scan.hasNext())
+//      	input += scan.next();
+//      	if (input != null)
+//       	  return input;
+//          else
+//       	  return null;	
+//
+
     } 
     
     /**
