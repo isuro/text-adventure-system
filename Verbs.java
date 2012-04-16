@@ -131,7 +131,7 @@ public class Verbs{
 	}
 
 	public static void look(){
-		System.out.println(World.getRoom(int[x,y,z]).examine());
+		System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).examine());
 	}
 
 	public static void inventory(){

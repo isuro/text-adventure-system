@@ -28,8 +28,8 @@ public class World
 		setWorldRooms();
 	}
 
-    public static Room getRoom(int[] location){
-        return worldRooms
+    public static Room getRoom(int x, int y, int z){
+        return worldRooms[x][y][z];
     }
 
 	/**
@@ -110,7 +110,7 @@ public class World
                 //sets exits for newly created room based on scanned input
                 for (int j = 0; j < 6; j++)
                     {
-                    if (scanExits.next() == "T")
+                    if (scanExits.next().equals("T"))
                         roomArray.getARoom(i).setAnExit(true, j);    
                     }
                 }      

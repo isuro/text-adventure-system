@@ -1,6 +1,7 @@
 import java.lang.*;
+import java.util.List;
 
-public class ItemBag
+public class ItemBag implements Iterable
 {
 	private Item [] items;
 	private int numberOfItems;
@@ -20,9 +21,13 @@ public class ItemBag
 			increaseCapacity(INCREMENT);
 		else
 		{
-			i = items[numberOfItems];
+			items[numberOfItems] = i;
 			numberOfItems++;	
 		}
+	}
+
+	public void removeItem(Item i){
+
 	}
 
 	public boolean isFull()
@@ -66,7 +71,7 @@ public class ItemBag
 	{
 
 		for(int i = 0; i<numberOfItems; i++)
-			if(items[i].getName() == name)
+			if(items[i].getName().equals(name))
 				return items[i];
 
 		throw new IllegalArgumentException("No such item!");
