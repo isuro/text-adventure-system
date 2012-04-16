@@ -9,32 +9,34 @@ public class Verbs{
 	*/
 	public static void parse(String input)
 	{
-		Scanner scan = new Scanner(input.toLowerCase());
-		String i = scan.next(); //first word
-		String words = ""; //remaining words
-		while(scan.hasNext()){words+= scan.next() + " ";}
-		System.out.println(EOL+EOL);
+		if (!input.equals("")) {
+			Scanner scan = new Scanner(input.toLowerCase());
+			String i = scan.next(); //first word
+			String words = ""; //remaining words
+			while(scan.hasNext()){words+= scan.next() + " ";}
+			System.out.println(EOL+EOL);
 
-		//The following act on the verb, passing arguments if necessary
-		//The string 'words' contains any arguments,
-		if (i.equals("north") || i.equals("n")) {north();}
-		else if (i.equals("northeast") || i.equals("ne")) {northeast();}
-		else if (i.equals("east") || i.equals("e")) {east();}
-		else if (i.equals("southeast") || i.equals("se")) {southeast();}
-		else if (i.equals("south") || i.equals("s")) {south();}
-		else if (i.equals("southwest") || i.equals("sw")) {southwest();}
-		else if (i.equals("west") || i.equals("w")) {west();}
-		else if (i.equals("northwest") || i.equals("nw")) {northwest();}
-		else if (i.equals("up") || i.equals("u")) {up();}
-		else if (i.equals("down") || i.equals("d")) {down();}
-		else if (i.equals("use")) {use(words);}
-		else if (i.equals("talk")) {talk(words);}
-		else if (i.equals("examine") || i.equals("e")) {examine(words);}
-		else if (i.equals("look") || i.equals("l")) {look();}
-		else if (i.equals("inventory") || i.equals("i")) {inventory();}
-		else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
-		else if (i.equals("help") || i.equals("?")) {help();}
-		else {nope();}
+			//The following act on the verb, passing arguments if necessary
+			//The string 'words' contains any arguments,
+			if (i.equals("north") || i.equals("n")) {north();}
+			else if (i.equals("northeast") || i.equals("ne")) {northeast();}
+			else if (i.equals("east") || i.equals("e")) {east();}
+			else if (i.equals("southeast") || i.equals("se")) {southeast();}
+			else if (i.equals("south") || i.equals("s")) {south();}
+			else if (i.equals("southwest") || i.equals("sw")) {southwest();}
+			else if (i.equals("west") || i.equals("w")) {west();}
+			else if (i.equals("northwest") || i.equals("nw")) {northwest();}
+			else if (i.equals("up") || i.equals("u")) {up();}
+			else if (i.equals("down") || i.equals("d")) {down();}
+			else if (i.equals("use")) {use(words);}
+			else if (i.equals("talk")) {talk(words);}
+			else if (i.equals("examine") || i.equals("e")) {examine(words);}
+			else if (i.equals("look") || i.equals("l")) {look();}
+			else if (i.equals("inventory") || i.equals("i")) {inventory();}
+			else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
+			else if (i.equals("help") || i.equals("?")) {help();}
+			else {nope();}
+		}
 	}
 	
 	public static void north()
