@@ -48,7 +48,7 @@ public class RoomBag
         {
             System.out.println("\n There are currently "+ rooms.size() +" rooms:");
             for (Enumeration<Room> e = rooms.elements(); e.hasMoreElements();)
-            	System.out.println(e.nextElement()+ " ");
+            	System.out.println(e.nextElement()+ "; ");
             // for (int i = 0; i < rooms.size(); i++)
             //     System.out.print(rooms.elementAt(i)+ " ");
             System.out.println();
