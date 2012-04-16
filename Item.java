@@ -10,9 +10,7 @@ public class Item
 	private boolean canTalk;
 	private String[][] dialogue;
 
-	public Item (String itemName, String itemShortName, String itemDescription,
-	String itemShortDescription, String itemUseEffect, Item[] itemUsedWith,
-	int itemID, boolean itemCanTalk, String[][] itemDialogue)
+	public Item (String itemName, String itemShortName, String itemDescription, String itemShortDescription, String itemUseEffect, Item[] itemUsedWith, int itemID, boolean itemCanTalk, String[][] itemDialogue)
 	{
 		name = itemName;
 		shortName = itemShortName;
