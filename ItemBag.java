@@ -1,61 +1,35 @@
 import java.lang.*;
-import java.util.List;
+import java.util.Vector;
 
-public class ItemBag implements Iterable
+public class ItemBag
 {
-	private Item [] items;
-	private int numberOfItems;
-	private final int INCREMENT;
+	private Vector<Item> items;
 
     //Creates an empty instance of ItemBag
 	public ItemBag()
 	{
-		items = new Item [0];
-		numberOfItems = 0;
-		INCREMENT = 10;
+		items = new Vector<Item>();
 	}
 
 	public void addItem(Item i)
 	{
-		if (isFull())
-			increaseCapacity(INCREMENT);
-		else
-		{
-			items[numberOfItems] = i;
-			numberOfItems++;	
-		}
+		items.add(i);
 	}
 
 	public void removeItem(Item i){
-
-	}
-
-	public boolean isFull()
-	{
-		if ((items.length - 1) == numberOfItems)
-			return true;
-		else
-			return false;	
-	}
-
-	public void increaseCapacity(int newSize)
-	{
-		Item [] old = items;
-		items = (Item []) new Comparable[ newSize ];
-		for(int i = 0; i < old.length; i++ )
-			items[ i ] = old[ i ]; 
+		items.remove(i);
 	}
 
 	//prints items
 	public void printItems()
 	{ 
-		if (numberOfItems == 0)
+		if (items.size() == 0)
 			System.out.println("\n You have no items :(");
 		else
 		{
-			System.out.println("\n You currently have "+ numberOfItems +" items:");
-			for (int i = 0; i < numberOfItems; i++)
-				System.out.println(items[i]+ " ");
+			System.out.println("\n You currently have "+ items.size() +" items:");
+			for (int i = 0; i < items.size(); i++)
+				System.out.println(items.elementAt(i)+ " ");
 			System.out.println();
 		}                
 	}
@@ -63,16 +37,16 @@ public class ItemBag implements Iterable
 	public int countItems()
 	{
 
-		return numberOfItems;
+		return items.size();
 
 	}
 
 	public Item getItem(String name)
 	{
 
-		for(int i = 0; i<numberOfItems; i++)
-			if(items[i].getName().equals(name))
-				return items[i];
+		for(int i = 0; i<items.size(); i++)
+			if(items.elementAt(i).getName().equals(name))
+				return items.elementAt(i);
 
 		throw new IllegalArgumentException("No such item!");
 	}
