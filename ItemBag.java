@@ -1,4 +1,5 @@
 import java.util.Vector;
+import java.util.Enumeration;
 
 public class ItemBag
 {
@@ -27,8 +28,10 @@ public class ItemBag
 		else
 		{
 			System.out.println("\n You currently have "+ items.size() +" items:");
-			for (int i = 0; i < items.size(); i++)
-				System.out.println(items.elementAt(i)+ " ");
+            for (Enumeration<Item> e = items.elements(); e.hasMoreElements();)
+            	System.out.println(e.nextElement()+ " ");
+			// for (int i = 0; i < items.size(); i++)
+			// 	System.out.println(items.elementAt(i)+ " ");
 			System.out.println();
 		}                
 	}
