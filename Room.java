@@ -75,4 +75,8 @@ public class Room{
 		return exits[i];
 	}
 
+	public String toString(){
+		return xCoord + ", " + yCoord + ", " + zCoord;
+	}
+
 }
