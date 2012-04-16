@@ -6,9 +6,9 @@ public class Exe
 	static int x = 5;
 	static int y = 5;
 	static int z = 5;
-    public static int[][][] location;
-    public static String chName = "";
-    public static final String EOL = System.getProperty("line.separator");
+    static int[][][] location;
+    static String chName = "";
+    static final String EOL = System.getProperty("line.separator");
 
 	public static void main (String[] args)
 	{
@@ -90,27 +90,27 @@ public class Exe
     } 
     
     /**
-    * File should be in the following format:
-    * 
-    * "TOTALNUMBEROFROOMS 3
-    *  1 1 1 1
-    *  This is a description of room 1.
-    *  F F F F T F
-    *  2 1 2 1
-    *  This is a description of room 2.
-    *  F F T F F F
-    *  3 2 2 1
-    *  This is a description of room 3.
-    *  F F T F F F
-    *  ...
-    *  1000 x y z
-    *  This is a description of room 1000.
-    *  NExit SExit EExit WExit UpExit DownExit"
-    *  
-    *  The first number is the room ID, and the last three numbers are the room's
-    *  x, y, and z coordinates, respectively. Worlds cannot exceed 1000 rooms 
-    *  (i.e. a 10x10x10 three dimension array).
-    *  
+    * Reads in the file defining the rooms in the world. 
+    * File should be in the following format:<br />
+    * <br />
+    * "TOTALNUMBEROFROOMS 3<br />
+    * 1 1 1 1<br />
+    * This is a description of room 1.<br />
+    * F F F F T F<br />
+    * 2 1 2 1<br />
+    * This is a description of room 2.<br />
+    * F F T F F F<br />
+    * 3 2 2 1<br />
+    * This is a description of room 3.<br />
+    * F F T F F F<br />
+    * ...<br />
+    * 1000 x y z<br />
+    * This is a description of room 1000.<br />
+    * NExit SExit EExit WExit UpExit DownExit"<br />
+    * <br />
+    * The first number is the room ID, and the last three numbers are the room's
+    * x, y, and z coordinates, respectively. Worlds cannot exceed 1000 rooms 
+    * (i.e. a 10x10x10 three dimension array). 
     */
     public static void readSaveFile (String pathname)
     {

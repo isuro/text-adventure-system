@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Verbs{
 
-	private static final String EOL = System.getProperty("line.separator");
+	static final String EOL = System.getProperty("line.separator");
 	
 	/**
 	* Prints whitespace, finds the verb.
