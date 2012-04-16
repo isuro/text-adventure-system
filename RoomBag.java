@@ -10,13 +10,12 @@ public class RoomBag
 {
 	public Room[] rooms;
 	int numberOfRooms;
-	final int INCREMENT;
+	final int INCREMENT = 10;
 
 	public RoomBag()
 	{
 		rooms = new Room[0];
 		numberOfRooms = 0;
-		INCREMENT = 10;
 	}
 
 	public void addRoom(Room r)

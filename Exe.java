@@ -17,15 +17,16 @@ public class Exe
             "Glorious Text Adventure For Great Victory (TM & C)!" + EOL +
             "To get started, please type your character's name.");
         chName = readInput();
-        System.out.println(
+        System.out.println(EOL +
             "Why hello there " + chName + ". Why don't you " + EOL +
             "check out your surroundings by typing 'look'?");
 		Verbs.parse(readInput());
-        System.out.println(
+        System.out.println(EOL +
             "Wow! What a cool place. Why don't you examine the" + EOL +
             "box? Type 'examine box' to take a closer look at the box.");
         Verbs.parse(readInput());
-        System.out.println("Alright, from here on you're on your own." + EOL +
+        System.out.println(EOL +
+            "Alright, from here on you're on your own." + EOL +
             "You can type 'help' or '?' to see a list of commands.");
         while(true){
             System.out.println();
