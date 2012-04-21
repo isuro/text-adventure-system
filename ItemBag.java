@@ -45,10 +45,11 @@ public class ItemBag
 
 	public Item getItem(String name)
 	{
-
-		for(int i = 0; i<items.size(); i++)
-			if(items.elementAt(i).getName().equals(name))
+		int i = 0;
+		for (Enumeration<Item> e = items.elements(); e.hasMoreElements();)
+			if(e.nextElement().getName().equals(name))
 				return items.elementAt(i);
+			i++;
 
 		throw new IllegalArgumentException("No such item!");
 	}
