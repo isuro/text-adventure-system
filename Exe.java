@@ -7,11 +7,13 @@ public class Exe
 	static int y = 5;
 	static int z = 5;
     static int[][][] location;
+    static World world;
     static String chName = "";
     static final String EOL = System.getProperty("line.separator");
 
 	public static void main (String[] args)
 	{
+        world = world.getWorld();
 		System.out.println(
             "Hello there. Welcome to Isaac and Alison's " + EOL +
             "Glorious Text Adventure For Great Victory (TM & C)!" + EOL +
@@ -89,29 +91,7 @@ public class Exe
 
     } 
     
-    /**
-    * Reads in the file defining the rooms in the world. 
-    * File should be in the following format:<br />
-    * <br />
-    * "TOTALNUMBEROFROOMS 3<br />
-    * 1 1 1 1<br />
-    * This is a description of room 1.<br />
-    * F F F F T F<br />
-    * 2 1 2 1<br />
-    * This is a description of room 2.<br />
-    * F F T F F F<br />
-    * 3 2 2 1<br />
-    * This is a description of room 3.<br />
-    * F F T F F F<br />
-    * ...<br />
-    * 1000 x y z<br />
-    * This is a description of room 1000.<br />
-    * NExit SExit EExit WExit UpExit DownExit"<br />
-    * <br />
-    * The first number is the room ID, and the last three numbers are the room's
-    * x, y, and z coordinates, respectively. Worlds cannot exceed 1000 rooms 
-    * (i.e. a 10x10x10 three dimension array). 
-    */
+   
     public static void readSaveFile (String pathname)
     {
     	try {

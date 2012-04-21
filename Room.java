@@ -18,6 +18,15 @@ public class Room{
 		this.description = description;
 	}
 
+	public Room(int x, int y, int z, String description, boolean [] exits)
+	{
+		this.xCoord = x;
+		this.yCoord = y;
+		this.zCoord = z;
+		this.description = description;
+		this.exits = exits;
+	}
+
 	public Room(int x, int y, int z, String description, boolean nEx, boolean sEx, boolean eEx, boolean wEx, boolean upEx, boolean dnEx)
 	{
 		this.xCoord = x;
@@ -71,7 +80,8 @@ public class Room{
 		return this.items;
 	}
 
-	public boolean checkExit(int i){
+	public boolean checkExit(int i)
+	{
 		return exits[i];
 	}
 
