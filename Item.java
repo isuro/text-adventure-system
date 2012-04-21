@@ -5,12 +5,12 @@ public class Item
 	private String description;
 	private String shortDescription;
 	private String useEffect;
-	private Item[] usedWith;
+	private String [] usedWith;
 	private int id;
 	private boolean canTalk;
 	private String[][] dialogue;
 
-	public Item (String itemName, String itemShortName, String itemDescription, String itemShortDescription, String itemUseEffect, Item[] itemUsedWith, int itemID, boolean itemCanTalk, String[][] itemDialogue)
+	public Item (String itemName, String itemShortName, String itemDescription, String itemShortDescription, String itemUseEffect, String [] itemUsedWith, int itemID, boolean itemCanTalk, String[][] itemDialogue)
 	{
 		name = itemName;
 		shortName = itemShortName;
@@ -21,6 +21,14 @@ public class Item
 		id = itemID;
 		canTalk = itemCanTalk;
 		dialogue = itemDialogue;
+	}
+
+	public Item (String itemName, String itemDescription, String itemUseEffect, String [] itemUsedWith)
+	{
+		name = itemName;
+		description =  itemDescription;
+		useEffect = itemUseEffect;
+		usedWith = itemUsedWith;
 	}
 
 	public Item (String data)

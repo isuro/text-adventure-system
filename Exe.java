@@ -91,32 +91,85 @@ public class Exe
 
     } 
     
-   
+   /**
+    * Reads in a file that contains information about the previous game session. 
+    * File should be in the following format:
+    * 
+    * "SCORE someNumber<br />
+    *  CURRENTROOM someNumberX # someNumberY # someNumberZ<br />
+    *  NUMBERCURRENTITEMS someNumber<br />
+    *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    * ...<br />
+    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
+    * 
+    * @param pathname, the path to a user-specified world file.
+    */
     public static void readSaveFile (String pathname)
     {
     	try {
-            Scanner scanPlace = new Scanner(new File (pathname));
-            Scanner scanItems = new Scanner(new File (pathname)).useDelimiter("\\d");
+            Scanner scanner = new Scanner(new File (pathname));
 
+            int currentScore;
             int currentLocationX;
             int currentLocationY;
             int currentLocationZ;
             int numCurrentItems;
             ItemBag currentItems = new ItemBag();
-            // currentItems.numberOfItems = numCurrentItems; Is this needed?
-             
-            currentLocationX = scanPlace.nextInt();
-            currentLocationY = scanPlace.nextInt();
-            currentLocationZ = scanPlace.nextInt();
-            numCurrentItems = scanItems.nextInt();
 
-            for (int i = 0; i < numCurrentItems; i++) 
-                currentItems.addItem(new Item(scanItems.next()));
+            currentScore = scanner.nextInt(); 
+            currentLocationX = scanner.nextInt();
+            currentLocationY = scanner.nextInt();
+            currentLocationZ = scanner.nextInt();
+            numCurrentItems = scanner.nextInt();
+
+            for (int i = 0; i < numCurrentItems; i++)
+            {
+                Item item = processLine(scanner.nextLine());
+                currentItems.addItem(item);
             }
+            
+            System.out.println("Loaded save file."); 
+        }
+                
         catch (FileNotFoundException ex)
         {
             System.out.println("File not found.");
         }
+    }
+
+   /**
+    * Reads a line of text from a save file. Properly formatted save
+    * files contain all data for a item in one line. If the save 
+    * file is formatted properly, processLine will return a Item with
+    * data read from the input parameter.
+    *
+    * @param aLine, a String of data
+    * @return i, a newly contructed Item. Returns null if the world file is malformed.
+    */
+    public static Item processLine (String aLine)
+    {
+        Scanner scan = new Scanner (aLine);
+        scan.useDelimiter("#");
+        
+        if (scan.hasNext())
+        {   
+            String itemName = scan.next().trim();
+            String itemDescription = scan.next().trim();
+            String itemUseEffect = scan.next().trim();
+            String numberOfItemsUsedWith = scan.next();
+            int numOfItemsUsedWith = Integer.parseInt(numberOfItemsUsedWith.trim());           
+            String [] itemsUsedWith = new String [numOfItemsUsedWith];
+            for (int j = 0; j < itemsUsedWith.length; j++)
+                    {
+                        itemsUsedWith[j] = scan.next();  
+                    }
+              Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
+              return i;
+          }
+          else
+            return null;
     }
     
     public static void saveFile ()
