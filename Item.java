@@ -10,6 +10,19 @@ public class Item
 	private boolean canTalk;
 	private String[][] dialogue;
 
+    /**
+    * Creates an Item, all at once.
+    *
+    * @param itemName 				the item's full name.
+    * @param itemShortName			the item's short name.
+    * @param itemDescription 		the item's full description.
+    * @param itemShortDescription	the item's short description.
+    * @param itemUseEffect 			the effect of using the item.
+    * @param itemUsedWith 			a string array of things the item can be used with.
+    * @param itemID					an int ID number.
+    * @param itemCanTalk 			boolean.
+    * @param itemDialogue 			a 2D string array for dialogue.
+    */
 	public Item (String itemName, String itemShortName, String itemDescription, String itemShortDescription, String itemUseEffect, String [] itemUsedWith, int itemID, boolean itemCanTalk, String[][] itemDialogue)
 	{
 		name = itemName;
@@ -23,6 +36,14 @@ public class Item
 		dialogue = itemDialogue;
 	}
 
+    /**
+    * Creates an Item, faster.
+    *
+    * @param itemName 				the item's full name.
+    * @param itemDescription 		the item's full description.
+    * @param itemUseEffect 			the effect of using the item.
+    * @param itemUsedWith 			a string array of things the item can be used with.
+    */
 	public Item (String itemName, String itemDescription, String itemUseEffect, String [] itemUsedWith)
 	{
 		name = itemName;
@@ -36,6 +57,9 @@ public class Item
 		
 	}
 
+	/**
+	* @return name 		the item's name.
+	*/
 	public String getName ()
 	{
 		return name;

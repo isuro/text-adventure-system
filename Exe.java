@@ -36,44 +36,76 @@ public class Exe
         }
     }
 
+    /**
+    * @return chName     the player's name.
+    */
     public static String getChName(){
         return chName;
     }
 
+    /**
+    * @return coords  the player's current [x, y, z] coordinates as an int array.
+    */
     public static int[] getCoords(){
         return new int[] {x, y, z};
     }
 
+    /**
+    * @return x     the player's current x coordinate.
+    */
     public static int getX(){
         return x;
     }
 
+    /**
+    * @return y     the player's current y coordinate.
+    */
     public static int getY(){
         return y;
     }
 
+    /**
+    * @return z     the player's current z coordinate.
+    */
     public static int getZ(){
         return z;
     }
 
+    /**
+    * Sets the player's current location manually.
+    *
+    * @param coords     the desired [x, y, z] coordinates as an int array.
+    */
     public static void setCoords(int[] coords){
         x = coords[0];
         y = coords[1];
         z = coords[2];
     }
 	
+    /**
+    * @param x  the desired x coordinate.
+    */
     public static void setX(int x){
         x = x;
     }
 
+    /**
+    * @param y  the desired y coordinate.
+    */
     public static void setY(int y){
         y = y;
     }
 
+    /**
+    * @param z   the desired z coordinate.
+    */
     public static void setZ(int z){
         z = z;
     }
 
+    /**
+    * Reads the next line from System.in using a scanner.
+    */
     public static String readInput()
 	{
 //      Scanner scan = new Scanner(System.in);
@@ -104,7 +136,7 @@ public class Exe
     * ...<br />
     *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
     * 
-    * @param pathname, the path to a user-specified world file.
+    * @param pathname   the path to a user-specified world file.
     */
     public static void readSaveFile (String pathname)
     {
@@ -142,11 +174,11 @@ public class Exe
    /**
     * Reads a line of text from a save file. Properly formatted save
     * files contain all data for a item in one line. If the save 
-    * file is formatted properly, processLine will return a Item with
+    * file is formatted properly, processLine will return an Item with
     * data read from the input parameter.
     *
-    * @param aLine, a String of data
-    * @return i, a newly contructed Item. Returns null if the world file is malformed.
+    * @param aLine  a String of data
+    * @return i     a newly contructed Item. Returns null if the world file is malformed.
     */
     public static Item processLine (String aLine)
     {
