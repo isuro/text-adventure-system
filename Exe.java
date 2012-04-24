@@ -37,35 +37,35 @@ public class Exe
     }
 
     /**
-    * @return chName     the player's name.
+    * @return the player's name.
     */
     public static String getChName(){
         return chName;
     }
 
     /**
-    * @return coords  the player's current [x, y, z] coordinates as an int array.
+    * @return the player's current [x, y, z] coordinates as an int array.
     */
     public static int[] getCoords(){
         return new int[] {x, y, z};
     }
 
     /**
-    * @return x     the player's current x coordinate.
+    * @return the player's current x coordinate.
     */
     public static int getX(){
         return x;
     }
 
     /**
-    * @return y     the player's current y coordinate.
+    * @return the player's current y coordinate.
     */
     public static int getY(){
         return y;
     }
 
     /**
-    * @return z     the player's current z coordinate.
+    * @return the player's current z coordinate.
     */
     public static int getZ(){
         return z;
@@ -125,16 +125,16 @@ public class Exe
     
    /**
     * Reads in a file that contains information about the previous game session. 
-    * File should be in the following format:
-    * 
-    * "SCORE someNumber<br />
+    * File should be in the following format:<br />
+    * <br />
+    * <code>SCORE someNumber<br />
     *  CURRENTROOM someNumberX # someNumberY # someNumberZ<br />
     *  NUMBERCURRENTITEMS someNumber<br />
     *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     * ...<br />
-    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
+    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3</code>
     * 
     * @param pathname   the path to a user-specified world file.
     */
@@ -178,7 +178,7 @@ public class Exe
     * data read from the input parameter.
     *
     * @param aLine  a String of data
-    * @return i     a newly contructed Item. Returns null if the world file is malformed.
+    * @return a newly contructed Item. Returns null if the world file is malformed.
     */
     public static Item processLine (String aLine)
     {

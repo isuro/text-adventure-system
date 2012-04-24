@@ -1,16 +1,18 @@
+import java.util.Vector;
+import java.util.Enumeration;
+
 /**
-* RoomBag class
+* Rooms are stored in a <code>Vector<Item></code>.
+* Operations are conducted using <code>Vector</code>'s built-in methods.
+* @see ItemBag
 *
 * @author Alison Mayer
 * @date April 4, 2012
 * @version 1.1
 */
-import java.util.Vector;
-import java.util.Enumeration;
-
 public class RoomBag
 {
-	public Vector<Room> rooms;
+	private Vector<Room> rooms;
 
 	public RoomBag()
 	{
@@ -21,12 +23,6 @@ public class RoomBag
 	{
 		rooms.add(r);
 	}
-
-	//returns array of rooms
-	//public Room[] getRooms()
-	//{
-	//	return rooms; 
-	//}
 
 	//returns room with user-given index from the array of rooms
 	public Room getARoom(int i)
@@ -39,7 +35,13 @@ public class RoomBag
 		return rooms.size();
 	}
 
-	//prints items
+	/**
+	* Prints out contained items.
+	* There are two possible outputs:<br />
+	* <code>There are no rooms.</code><br />
+	* or <br />
+	* <code>There are currently <i>i</i> rooms: <i>x1, y1, z1</i>; <i>x2, y2, z2</i>; <i>x3, y3, z3</i>; <i>etc.</i></code>
+	*/
 	public void printRooms()
     { 
         if (rooms.size() == 0)
@@ -49,8 +51,7 @@ public class RoomBag
             System.out.println("\n There are currently "+ rooms.size() +" rooms:");
             for (Enumeration<Room> e = rooms.elements(); e.hasMoreElements();)
             	System.out.println(e.nextElement()+ "; ");
-            // for (int i = 0; i < rooms.size(); i++)
-            //     System.out.print(rooms.elementAt(i)+ " ");
+
             System.out.println();
         }                
     }

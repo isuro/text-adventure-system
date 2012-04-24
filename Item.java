@@ -58,78 +58,122 @@ public class Item
 	}
 
 	/**
-	* @return name 		the item's name.
+	* @return the item's full name.
 	*/
 	public String getName ()
 	{
 		return name;
 	}
 
+	/**
+	* @return the item's short name.
+	*/
 	public String getShortName ()
 	{
 		return shortName;
 	}
-
+	
+	/**
+	* @return the item's full description.
+	*/
 	public String getDescription()
 	{
 		return description;
 	}
-
+	
+	/**
+	* @return the item's short description.
+	*/
 	public String getShortDescription()
 	{
 		return shortDescription;
 	}
-
+	
+	/**
+	* @return the item's use effect.
+	*/
 	public String getUseEffect()
 	{
 		return useEffect;
 	}
-
+	
+	/**
+	* @return the item's ID.
+	*/
 	public int getID()
 	{
 		return id;
 	}
-
+	
+	/**
+	* @return the item's ability to talk.
+	*/
 	public boolean getCanTalk()
 	{
 		return canTalk;
 	}
-
+	
+	/**
+	* @return the item's dialogue.
+	*/
 	public String[][] getDialogue(int x, int y)
 	{
 		return dialogue;
 	}
-
+	
+	/**
+	* @param n 		the full desired name for the item
+	*/
 	public void setName (String n)
 	{
 		name = n;
 	}
-
+	
+	/**
+	* @param sN 	the desired short name for the item
+	*/
 	public void setShortName (String sN)
 	{
 		shortName = sN;
 	}
-
+	
+	/**
+	* @param d 		the desired full description for the item
+	*/
 	public void setDescription (String d)
 	{
 		description = d;
 	}
-
+	
+	/**
+	* @param sD 	the desired short description for the item
+	*/
 	public void setShortDescription (String sD)
 	{
 		shortDescription = sD;
 	}
-
+	
+	/**
+	* @param u  	the desired use effect for the item
+	*/
 	public void setUseEffect (String u)
 	{
 		useEffect = u;
 	}
-
+	
+	/**
+	* @param i 		the desired short name for the item
+	*/
 	public void setInInventory (int i)
 	{
 		id = i;
 	}
-
+	
+	/**
+	* Sets dialogue. Also sets canTalk to true.
+	*
+	* @param d  	the dialogue array for the item
+	*/
 	public void setDialogue(String[][] d)
 	{
 		dialogue = d;
