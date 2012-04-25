@@ -1,8 +1,8 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class Exe
-{
+public class Exe{
+
 	static int x = 5;
 	static int y = 5;
 	static int z = 5;
@@ -11,22 +11,26 @@ public class Exe
     static String chName = "";
     static final String EOL = System.getProperty("line.separator");
 
-	public static void main (String[] args)
-	{
+    public static void main (String[] args)
+    {
         world = world.getWorld();
-		System.out.println(
+        System.out.println("Do you need some help getting started? (y/n)");
+        System.out.print(EOL + ">"); if(readInput().equals("y"))
+        {
+          System.out.println(
             "Hello there. Welcome to Isaac and Alison's " + EOL +
             "Glorious Text Adventure For Great Victory (TM & C)!" + EOL +
             "To get started, please type your character's name.");
-        System.out.print(EOL + ">"); chName = readInput();
-        System.out.println(EOL +
+          System.out.print(EOL + ">"); chName = readInput();
+          System.out.println(EOL +
             "Why hello there " + chName + ". Why don't you " + EOL +
             "check out your surroundings by typing 'look'?");
-		System.out.print(EOL + ">"); Verbs.parse(readInput());
-        System.out.println(EOL +
+          System.out.print(EOL + ">"); Verbs.parse(readInput());
+          System.out.println(EOL +
             "Wow! What a cool place. Why don't you examine the" + EOL +
             "box? Type 'examine box' to take a closer look at the box.");
-        System.out.print(EOL + ">"); Verbs.parse(readInput());
+          System.out.print(EOL + ">"); Verbs.parse(readInput());
+        }
         System.out.println(EOL +
             "Alright, from here on you're on your own." + EOL +
             "You can type 'help' or '?' to see a list of commands.");
@@ -81,7 +85,7 @@ public class Exe
         y = coords[1];
         z = coords[2];
     }
-	
+
     /**
     * @param x  the desired x coordinate.
     */
@@ -107,7 +111,7 @@ public class Exe
     * Reads the next line from System.in using a scanner.
     */
     public static String readInput()
-	{
+    {
 //      Scanner scan = new Scanner(System.in);
 //      String input = scan.nextLine();
         return new Scanner(System.in).nextLine(); 
@@ -140,35 +144,35 @@ public class Exe
     */
     public static void readSaveFile (String pathname)
     {
-    	try {
-            Scanner scanner = new Scanner(new File (pathname));
+       try {
+        Scanner scanner = new Scanner(new File (pathname));
 
-            int currentScore;
-            int currentLocationX;
-            int currentLocationY;
-            int currentLocationZ;
-            int numCurrentItems;
-            ItemBag currentItems = new ItemBag();
+        int currentScore;
+        int currentLocationX;
+        int currentLocationY;
+        int currentLocationZ;
+        int numCurrentItems;
+        ItemBag currentItems = new ItemBag();
 
-            currentScore = scanner.nextInt(); 
-            currentLocationX = scanner.nextInt();
-            currentLocationY = scanner.nextInt();
-            currentLocationZ = scanner.nextInt();
-            numCurrentItems = scanner.nextInt();
+        currentScore = scanner.nextInt(); 
+        currentLocationX = scanner.nextInt();
+        currentLocationY = scanner.nextInt();
+        currentLocationZ = scanner.nextInt();
+        numCurrentItems = scanner.nextInt();
 
-            for (int i = 0; i < numCurrentItems; i++)
-            {
-                Item item = processLine(scanner.nextLine());
-                currentItems.addItem(item);
-            }
-            
-            System.out.println("Loaded save file."); 
-        }
-                
-        catch (FileNotFoundException ex)
+        for (int i = 0; i < numCurrentItems; i++)
         {
-            System.out.println("File not found.");
+            Item item = processLine(scanner.nextLine());
+            currentItems.addItem(item);
         }
+
+        System.out.println("Loaded save file."); 
+       }
+
+       catch (FileNotFoundException ex)
+       {
+        System.out.println("File not found.");
+       }
     }
 
    /**
@@ -180,11 +184,11 @@ public class Exe
     * @param aLine  a String of data
     * @return a newly contructed Item. Returns null if the world file is malformed.
     */
-    public static Item processLine (String aLine)
-    {
+   public static Item processLine (String aLine)
+   {
         Scanner scan = new Scanner (aLine);
         scan.useDelimiter("#");
-        
+
         if (scan.hasNext())
         {   
             String itemName = scan.next().trim();
@@ -194,24 +198,25 @@ public class Exe
             int numOfItemsUsedWith = Integer.parseInt(numberOfItemsUsedWith.trim());           
             String [] itemsUsedWith = new String [numOfItemsUsedWith];
             for (int j = 0; j < itemsUsedWith.length; j++)
-                    {
-                        itemsUsedWith[j] = scan.next();  
-                    }
-              Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
-              return i;
-          }
-          else
+            {
+             itemsUsedWith[j] = scan.next();  
+            }
+            Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
+            return i;
+        }
+        else{
             return null;
+        }
     }
-    
+
     public static void saveFile ()
     {
-        
+
     }     
- 
-	public static void addRoom (Room r)
-	{
-		
-	}
+
+    public static void addRoom (Room r)
+    {
+
+    }
 }
 

@@ -3,6 +3,7 @@ import java.util.Enumeration;
 /**
 * Items are stored in a <code>Vector<Item></code>.
 * Operations are conducted using <code>Vector</code>'s built-in methods.
+* @see RoomBag
 */
 public class ItemBag
 {
