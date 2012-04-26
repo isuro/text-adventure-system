@@ -39,72 +39,72 @@ public class Verbs{
 		}
 	}
 	
-	public static void north()
+	private static void north()
 	{
 		int Z = Exe.getZ();
 		Exe.setZ(Z++);
 	}
 
-	public static void northeast()
+	private static void northeast()
 	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]++});
 	}
 
-	public static void east()
+	private static void east()
 	{
 		int X = Exe.getX();
 		Exe.setX(X++);
 	}
 
-	public static void southeast()
+	private static void southeast()
 	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]--});
 	}
 
-	public static void south()
+	private static void south()
 	{
 		int Z = Exe.getZ();
 		Exe.setZ(Z--);
 	}
 
-	public static void southwest()
+	private static void southwest()
 	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]--});
 	}
 
-	public static void west()
+	private static void west()
 	{
 		int X = Exe.getX();
 		Exe.setX(X--);
 	}
 
-	public static void northwest()
+	private static void northwest()
 	{
 		int[] xyz = Exe.getCoords();
 		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]++});
 	}
 
-	public static void up()
+	private static void up()
 	{
 		int Y = Exe.getY();
 		Exe.setY(Y++);
 	}
 
-	public static void down()
+	private static void down()
 	{
 		int Y = Exe.getY();
 		Exe.setY(Y--);
 	}
 
-	public static void use(String i)
+	private static void use(String i)
 	{
 		
 	}
 
-	public static void talk(String i)
+	private static void talk(String i)
 	{
 		try {
 			if(Player.getInv().getItem(i).getCanTalk()) {
@@ -120,7 +120,7 @@ public class Verbs{
 		}
 	}
 
-	public static void examine(String i)
+	private static void examine(String i)
 	{
 		try
 		{
@@ -132,15 +132,15 @@ public class Verbs{
 		}
 	}
 
-	public static void look(){
+	private static void look(){
 		System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).examine());
 	}
 
-	public static void inventory(){
+	private static void inventory(){
 		Player.getInv().printItems();
 	}
 
-	public static void help(){
+	private static void help(){
 		System.out.println(
 			"Here's what you can do: (type indicated letter or full word)" + EOL +
 			"You can go (n)orth, (s)outh, (e)ast, or (w)est." + EOL +
