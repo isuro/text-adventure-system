@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
 
-
 /**
 * World describes the world of the game, including the array of rooms contained
 * within the world. It also includes variables such as start location, goal
@@ -32,9 +31,9 @@ public class World
     /**
     * Returns a single world room.
     * 
-    * @param x, the x-coordinate of the room
-    * @param y, the y-coordinate of the room
-    * @param z, the z-coordinate of the room
+    * @param x the x-coordinate of the room
+    * @param y the y-coordinate of the room
+    * @param z the z-coordinate of the room
     * @return an instance of Room 
     */
     public static Room getRoom(int x, int y, int z)

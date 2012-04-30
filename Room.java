@@ -1,3 +1,8 @@
+/**
+* A room is represented by its coordinates, a boolean array of exits,
+* an ItemBag (if applicable), and a description.<br />
+* Exits are ordered & referenced as follows: N=0 S=1 E=2 W=3 U=4 D=5.
+*/
 public class Room{
 
 	private int xCoord;
@@ -83,10 +88,13 @@ public class Room{
 		return exits[i];
 	}
 
-	public String toString()
-	{
+	/**
+	* Prints <code><i>x</i>, <i>y</i>, <i>z</i></code>.
+	*/
+	public String toString(){
 		return xCoord + ", " + yCoord + ", " + zCoord;
 	}
+
 
 	public void printRoom()
 	{
