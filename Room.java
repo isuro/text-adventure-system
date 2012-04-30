@@ -83,8 +83,31 @@ public class Room{
 		return exits[i];
 	}
 
-	public String toString(){
+	public String toString()
+	{
 		return xCoord + ", " + yCoord + ", " + zCoord;
+	}
+
+	public void printRoom()
+	{
+		System.out.println("Room located at: " + xCoord + ", " + yCoord + ", " + zCoord);
+		System.out.println("Room description: " + description);
+		System.out.println("Exits at: ");
+		for (int i = 0; i < 6; i++)
+			if (exits[0] == true)
+				System.out.println("North");
+			if (exits[1] == true)
+				System.out.println("South");
+			if (exits[2] == true)
+				System.out.println("East");
+			if (exits[3] == true)
+				System.out.println("West");
+			if (exits[4] == true)
+				System.out.println("Up");
+			if (exits[5] == true)
+				System.out.println("Down");	
+			else
+				System.out.println("No exits. You're trapped!");
 	}
 
 }

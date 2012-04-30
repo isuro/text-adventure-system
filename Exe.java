@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Exe
 {
-	static int x = 5;
-	static int y = 5;
-	static int z = 5;
+	static int x = 1;
+	static int y = 1;
+	static int z = 1;
     static int[][][] location;
     static World world;
     static String chName = "";
@@ -104,7 +104,7 @@ public class Exe
     * ...<br />
     *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
     * 
-    * @param pathname, the path to a user-specified world file.
+    * @param pathname, the path to a user-specified save file.
     */
     public static void readSaveFile (String pathname)
     {

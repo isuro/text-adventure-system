@@ -14,8 +14,9 @@ import java.util.Scanner;
 public class World
 {
 	private static String worldPathName;
-	private static Room[][][] worldRooms;
-	private static RoomBag roomArray;
+    private static String objectPathName;
+    public static Room [][][] worldRooms;
+    public static ItemBag worldItems;
 	private static int startLocationX;
 	private static int startLocationY;
 	private static int startLocationZ;
@@ -60,7 +61,9 @@ public class World
 	private static void setWorldRooms()
 	{
 		worldPathName = "ExampleRooms1.txt";
-		readWorldFile(worldPathName);	
+        objectPathName = "ExampleObjects1.txt";
+		readWorldFile(worldPathName);
+        readObjectFile(objectPathName);	
 	}
 
     /**
@@ -88,7 +91,6 @@ public class World
             
             int totalRooms;
             int currentRoom;
-            roomArray = new RoomBag();
 
             totalRooms = scanNumberOfRooms.nextInt();
             scanNumberOfRooms.close();
@@ -101,14 +103,14 @@ public class World
                 {   
                     Room r = processLine (scanRooms.nextLine());
                     if (r != null)
-                        roomArray.addRoom(r);
+                        worldRooms[r.getXCoord()][r.getYCoord()][r.getZCoord()] = r;
                     else
                         System.out.println("Error reading World file. Check file format.");
                 }
                 else
                     System.out.println("Error reading world file. Check file format.");
             }
-            System.out.println("I successfully read this file!");
+            System.out.println("Loaded world file.");
         }     
         catch (FileNotFoundException ex)
         {
@@ -137,8 +139,8 @@ public class World
             String zCoord = scan.next();
             
             int x = Integer.parseInt(xCoord.trim());
-             int y = Integer.parseInt(yCoord.trim());
-              int z = Integer.parseInt(zCoord.trim());
+            int y = Integer.parseInt(yCoord.trim());
+            int z = Integer.parseInt(zCoord.trim());
             
 
             String description = scan.next();
@@ -153,6 +155,76 @@ public class World
           }
           else
           return null;
+    }
+
+    /**
+    * Reads in a file that contains information about the objects contained within the world. 
+    * File should be in the following format:
+    * 
+    *  "NUMBEROFITEMS someNumber<br />
+    *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    * ...<br />
+    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
+    * 
+    * @param pathname, the path to a user-specified object file.
+    */
+    public static void readObjectFile (String pathname)
+    {
+        try {
+            Scanner scanner = new Scanner(new File (pathname));
+
+            int numCurrentItems;
+            numCurrentItems = scanner.nextInt();
+            worldItems = new ItemBag();
+
+            for (int i = 0; i < numCurrentItems; i++)
+            {
+                Item item = processObjectFileLine(scanner.nextLine());
+                worldItems.addItem(item);
+            }
+            
+            System.out.println("Loaded object file."); 
+        }
+                
+        catch (FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+
+   /**
+    * Reads a line of text from a object file. Properly formatted object
+    * files contain all data for a item in one line. If the object 
+    * file is formatted properly, processLine will return a Item with
+    * data read from the input parameter.
+    *
+    * @param aLine, a String of data
+    * @return i, a newly contructed Item. Returns null if the world file is malformed.
+    */
+    public static Item processObjectFileLine (String aLine)
+    {
+        Scanner scan = new Scanner (aLine);
+        scan.useDelimiter("#");
+        
+        if (scan.hasNext())
+        {   
+            String itemName = scan.next().trim();
+            String itemDescription = scan.next().trim();
+            String itemUseEffect = scan.next().trim();
+            String numberOfItemsUsedWith = scan.next();
+            int numOfItemsUsedWith = Integer.parseInt(numberOfItemsUsedWith.trim());           
+            String [] itemsUsedWith = new String [numOfItemsUsedWith];
+            for (int j = 0; j < itemsUsedWith.length; j++)
+                    {
+                        itemsUsedWith[j] = scan.next();  
+                    }
+              Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
+              return i;
+          }
+          else
+            return null;
     }
 	
 
