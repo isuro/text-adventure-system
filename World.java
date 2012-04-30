@@ -21,11 +21,11 @@ public class World
     private static World world;
 
 	//private constructor; World implements a singleton design pattern
-	private World()
-	{
-		worldRooms = new Room[10][10][10];
-		setWorldRooms();
-	}
+    private World()
+    {
+      worldRooms = new Room[10][10][10];
+      setWorldRooms();
+  }
 
     /**
     * Returns a single world room.
@@ -98,7 +98,7 @@ public class World
                 currentRoom = scanRooms.nextInt();
                 if (i+1 == currentRoom)
                 {   
-                    Room r = processLine (scanRooms.nextLine());
+                    Room r = processLine(scanRooms.nextLine());
                     if (r != null)
                         roomArray.addRoom(r);
                     else
@@ -121,8 +121,8 @@ public class World
     * file is formatted properly, processLine will return a Room with
     * data read from the input parameter.
     *
-    * @param aLine, a String of data
-    * @return r, a newly contructed Room. Returns null if the world file is malformed.
+    * @param aLine a String of data
+    * @return a newly contructed Room. Returns null if the world file is malformed.
     */
     private static Room processLine (String aLine)
     {
@@ -136,23 +136,24 @@ public class World
             String zCoord = scan.next();
             
             int x = Integer.parseInt(xCoord.trim());
-             int y = Integer.parseInt(yCoord.trim());
-              int z = Integer.parseInt(zCoord.trim());
+            int y = Integer.parseInt(yCoord.trim());
+            int z = Integer.parseInt(zCoord.trim());
             
 
             String description = scan.next();
             boolean [] exits = new boolean [6];
-             for (int j = 0; j < 6; j++)
-                    {
-                        if (scan.next().compareTo(" T ") == 0)
-                            exits[j] = true;    
-                    }
-              Room r = new Room (x, y, z, description, exits);
-              return r;
-          }
-          else
+            for (int j = 0; j < 6; j++)
+            {
+                if (scan.next().compareTo(" T ") == 0)
+                    exits[j] = true;    
+            }
+            Room r = new Room (x, y, z, description, exits);
+            worldRooms[x][y][z] = r;
+            return r;
+        }
+        else
           return null;
-    }
-	
+  }
+  
 
 }
