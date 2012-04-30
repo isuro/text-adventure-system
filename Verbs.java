@@ -41,8 +41,13 @@ public class Verbs{
 	
 	private static void north()
 	{
-		int Z = Exe.getZ();
-		Exe.setZ(Z++);
+		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(0)){
+			int Z = Exe.getZ();
+			Exe.setZ(Z++);
+		}
+		else{
+			nope();
+		}
 	}
 
 	private static void northeast()
@@ -53,8 +58,13 @@ public class Verbs{
 
 	private static void east()
 	{
-		int X = Exe.getX();
-		Exe.setX(X++);
+		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(2)){
+			int X = Exe.getX();
+			Exe.setX(X++);
+		}
+		else{
+			nope();
+		}
 	}
 
 	private static void southeast()
@@ -65,8 +75,13 @@ public class Verbs{
 
 	private static void south()
 	{
-		int Z = Exe.getZ();
-		Exe.setZ(Z--);
+		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(1)){
+			int Z = Exe.getZ();
+			Exe.setZ(Z--);
+		}
+		else{
+			nope();
+		}
 	}
 
 	private static void southwest()
@@ -77,8 +92,13 @@ public class Verbs{
 
 	private static void west()
 	{
-		int X = Exe.getX();
-		Exe.setX(X--);
+		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(3)){
+			int X = Exe.getX();
+			Exe.setX(X--);
+		}
+		else{
+			nope();
+		}
 	}
 
 	private static void northwest()
@@ -89,14 +109,24 @@ public class Verbs{
 
 	private static void up()
 	{
-		int Y = Exe.getY();
-		Exe.setY(Y++);
+		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(4)){
+			int Y = Exe.getY();
+			Exe.setY(Y++);
+		}
+		else{
+			nope();
+		}
 	}
 
 	private static void down()
 	{
-		int Y = Exe.getY();
-		Exe.setY(Y--);
+		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(5)){
+			int Y = Exe.getY();
+			Exe.setY(Y--);
+		}
+		else{
+			nope();
+		}
 	}
 
 	private static void use(String i)
