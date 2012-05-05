@@ -59,6 +59,17 @@ public class Room{
 		this.exits[i] = exit;
 	}
 
+	public void setAItem(Item newItem)
+	{
+		if (items == null)
+		{
+			items = new ItemBag();
+			items.addItem(newItem);
+		}
+		else
+			items.addItem(newItem);
+	}
+
 	public int getXCoord()
 	{
 		return xCoord;

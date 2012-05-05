@@ -161,11 +161,11 @@ public class World
     * File should be in the following format:
     * 
     *  "NUMBEROFITEMS someNumber<br />
-    *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
-    *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
-    *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem1 # item1IDX # item1IDY # item1IDZ # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem2 # item2IDX # item2IDY # item2IDZ # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem3 # item3IDX # item3IDY # item3IDZ # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     * ...<br />
-    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
+    *  nameOfItemN # itemNIDX # itemNIDY # itemNIDZ # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3"
     * 
     * @param pathname, the path to a user-specified object file.
     */
@@ -182,6 +182,10 @@ public class World
             {
                 Item item = processObjectFileLine(scanner.nextLine());
                 worldItems.addItem(item);
+                int locatedAtX = item.getIDX();
+                int locatedAtY = item.getIDY();
+                int locatedAtZ = item.getIDZ();
+                worldRooms[locatedAtX][locatedAtY][locatedAtZ].setAItem(item);
             }
             
             System.out.println("Loaded object file."); 
@@ -210,16 +214,23 @@ public class World
     if (scan.hasNext())
     {   
         String itemName = scan.next().trim();
+        String itemIDX = scan.next();
+        String itemIDY = scan.next();
+        String itemIDZ = scan.next();
+        int idX = Integer.parseInt(itemIDX.trim());
+        int idY = Integer.parseInt(itemIDY.trim());
+        int idZ = Integer.parseInt(itemIDZ.trim());
         String itemDescription = scan.next().trim();
         String itemUseEffect = scan.next().trim();
         String numberOfItemsUsedWith = scan.next();
         int numOfItemsUsedWith = Integer.parseInt(numberOfItemsUsedWith.trim());           
         String [] itemsUsedWith = new String [numOfItemsUsedWith];
+
         for (int j = 0; j < itemsUsedWith.length; j++)
         {
             itemsUsedWith[j] = scan.next();  
         }
-        Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
+        Item i = new Item (itemName, idX, idY, idZ, itemDescription, itemUseEffect, itemsUsedWith);
         return i;
     }
     else

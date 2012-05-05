@@ -6,7 +6,10 @@ public class Item
 	private String shortDescription;
 	private String useEffect;
 	private String [] usedWith;
-	private int id;
+	private int idX;
+	private int idY;
+	private int idZ;
+	private int inventoryID;
 	private boolean canTalk;
 	private String[][] dialogue;
 
@@ -19,11 +22,14 @@ public class Item
     * @param itemShortDescription	the item's short description.
     * @param itemUseEffect 			the effect of using the item.
     * @param itemUsedWith 			a string array of things the item can be used with.
-    * @param itemID					an int ID number.
+    * @param itemIDX				item's x-coordinate location.
+    * @param itemIDY				item's y-coordinate location.
+    * @param itemIDZ				item's z-coordinate location.
     * @param itemCanTalk 			boolean.
     * @param itemDialogue 			a 2D string array for dialogue.
     */
-	public Item (String itemName, String itemShortName, String itemDescription, String itemShortDescription, String itemUseEffect, String [] itemUsedWith, int itemID, boolean itemCanTalk, String[][] itemDialogue)
+	public Item (String itemName, String itemShortName, String itemDescription, String itemShortDescription, String itemUseEffect, 
+				 String [] itemUsedWith, int itemIDX, int itemIDY, int itemIDZ, boolean itemCanTalk, String[][] itemDialogue)
 	{
 		name = itemName;
 		shortName = itemShortName;
@@ -31,7 +37,9 @@ public class Item
 		shortDescription = itemShortDescription;
 		useEffect = itemUseEffect;
 		usedWith = itemUsedWith;
-		id = itemID;
+		idX = itemIDX;
+		idY = itemIDY;
+		idZ = itemIDZ;
 		canTalk = itemCanTalk;
 		dialogue = itemDialogue;
 	}
@@ -40,21 +48,22 @@ public class Item
     * Creates an Item, faster.
     *
     * @param itemName 				the item's full name.
+    * @param itemIDX				item's x-coordinate location.
+    * @param itemIDY				item's y-coordinate location.
+    * @param itemIDZ				item's z-coordinate location.
     * @param itemDescription 		the item's full description.
     * @param itemUseEffect 			the effect of using the item.
     * @param itemUsedWith 			a string array of things the item can be used with.
     */
-	public Item (String itemName, String itemDescription, String itemUseEffect, String [] itemUsedWith)
+	public Item (String itemName, int itemIDX, int itemIDY, int itemIDZ, String itemDescription, String itemUseEffect, String [] itemUsedWith)
 	{
 		name = itemName;
+		idX = itemIDX;
+		idY = itemIDY;
+		idZ = itemIDZ;
 		description =  itemDescription;
 		useEffect = itemUseEffect;
 		usedWith = itemUsedWith;
-	}
-
-	public Item (String data)
-	{
-		
 	}
 
 	/**
@@ -98,11 +107,27 @@ public class Item
 	}
 	
 	/**
-	* @return the item's ID.
+	* @return the item's x-coordinate ID.
 	*/
-	public int getID()
+	public int getIDX()
 	{
-		return id;
+		return idX;
+	}
+
+	/**
+	* @return the item's y-coordinate ID.
+	*/
+	public int getIDY()
+	{
+		return idY;
+	}
+
+	/**
+	* @return the item's z-coordinate ID.
+	*/
+	public int getIDZ()
+	{
+		return idZ;
 	}
 	
 	/**
@@ -160,13 +185,37 @@ public class Item
 	{
 		useEffect = u;
 	}
+
+	/**
+	* @param x      the desired x-coordinate location for the item
+	*/
+	public void setItemIDX(int x)
+	{
+		idX = x;
+	}
+
+	/**
+	* @param y      the desired y-coordinate location for the item
+	*/
+	public void setItemIDY(int y)
+	{
+		idY = y;
+	}
+
+	/**
+	* @param z      the desired z-coordinate location for the item
+	*/
+	public void setItemIDZ(int z)
+	{
+		idZ = z;
+	}
 	
 	/**
 	* @param i 		the desired short name for the item
 	*/
 	public void setInInventory (int i)
 	{
-		id = i;
+		inventoryID = i;
 	}
 	
 	/**
