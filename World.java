@@ -177,6 +177,7 @@ public class World
 
             int numCurrentItems;
             numCurrentItems = scanNumberOfItems.nextInt();
+            scanItems.nextInt();
             scanNumberOfItems.close();
             worldItems = new ItemBag();
 
