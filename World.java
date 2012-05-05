@@ -160,8 +160,7 @@ public class World
     * Reads in a file that contains information about the objects contained within the world. 
     * File should be in the following format:
     * 
-    *  "NUMBEROFITEMS someNumber<br />
-    *  nameOfItem1 # item1IDX # item1IDY # item1IDZ # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  "NUMBEROFITEMS someNumber nameOfItem1 # item1IDX # item1IDY # item1IDZ # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem2 # item2IDX # item2IDY # item2IDZ # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem3 # item3IDX # item3IDY # item3IDZ # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     * ...<br />
@@ -172,13 +171,10 @@ public class World
     public static void readObjectFile (String pathname)
     {
         try {
-            Scanner scanNumberOfItems = new Scanner(new File (pathname));
             Scanner scanItems = new Scanner (new File(pathname));
 
             int numCurrentItems;
-            numCurrentItems = scanNumberOfItems.nextInt();
-            scanItems.nextInt();
-            scanNumberOfItems.close();
+            numCurrentItems = scanItems.nextInt();
             worldItems = new ItemBag();
 
             for (int i = 0; i < numCurrentItems; i++)
