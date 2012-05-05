@@ -172,15 +172,17 @@ public class World
     public static void readObjectFile (String pathname)
     {
         try {
-            Scanner scanner = new Scanner(new File (pathname));
+            Scanner scanNumberOfItems = new Scanner(new File (pathname));
+            Scanner scanItems = new Scanner (new File(pathname));
 
             int numCurrentItems;
-            numCurrentItems = scanner.nextInt();
+            numCurrentItems = scanNumberOfItems.nextInt();
+            scanNumberOfItems.close();
             worldItems = new ItemBag();
 
             for (int i = 0; i < numCurrentItems; i++)
             {
-                Item item = processObjectFileLine(scanner.nextLine());
+                Item item = processObjectFileLine(scanItems.nextLine());
                 worldItems.addItem(item);
                 int locatedAtX = item.getIDX();
                 int locatedAtY = item.getIDY();
