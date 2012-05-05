@@ -30,7 +30,8 @@ public class Verbs{
 			else if (i.equals("down") || i.equals("d")) {down();}
 			else if (i.equals("use")) {use(words);}
 			else if (i.equals("talk")) {talk(words);}
-			else if (i.equals("examine") || i.equals("e")) {examine(words);}
+			else if (i.equals("examineRoom") || i.equals("e")) {examineRoom(words);}
+			else if (i.equals("examineInventory") || i.equals("ei")) {examineInventory(words);}
 			else if (i.equals("look") || i.equals("l")) {look();}
 			else if (i.equals("inventory") || i.equals("i")) {inventory();}
 			else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
@@ -150,7 +151,7 @@ public class Verbs{
 		}
 	}
 
-	private static void examine(String i)
+	private static void examineInventory(String i)
 	{
 		try
 		{
@@ -162,8 +163,20 @@ public class Verbs{
 		}
 	}
 
+	private static void examineRoom(String i)
+	{
+		try
+		{
+			
+		}
+		catch (IllegalArgumentException ex)
+		{
+			nope();
+		} 	
+	}
+
 	private static void look(){
-		System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).examine());
+		System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).examineRoom());
 	}
 
 	private static void inventory(){
