@@ -19,13 +19,9 @@ public class Verbs{
 			//The following act on the verb, passing arguments if necessary
 			//The string 'words' contains any arguments,
 			if (i.equals("north") || i.equals("n")) {north();}
-			else if (i.equals("northeast") || i.equals("ne")) {northeast();}
 			else if (i.equals("east") || i.equals("e")) {east();}
-			else if (i.equals("southeast") || i.equals("se")) {southeast();}
 			else if (i.equals("south") || i.equals("s")) {south();}
-			else if (i.equals("southwest") || i.equals("sw")) {southwest();}
 			else if (i.equals("west") || i.equals("w")) {west();}
-			else if (i.equals("northwest") || i.equals("nw")) {northwest();}
 			else if (i.equals("up") || i.equals("u")) {up();}
 			else if (i.equals("down") || i.equals("d")) {down();}
 			else if (i.equals("use")) {use(words);}
@@ -53,12 +49,6 @@ public class Verbs{
 		}
 	}
 
-	private static void northeast()
-	{
-		int[] xyz = Exe.getCoords();
-		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]++});
-	}
-
 	private static void east()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(2)){
@@ -68,12 +58,6 @@ public class Verbs{
 		else{
 			nope();
 		}
-	}
-
-	private static void southeast()
-	{
-		int[] xyz = Exe.getCoords();
-		Exe.setCoords(new int[] {xyz[0]++, xyz[1], xyz[2]--});
 	}
 
 	private static void south()
@@ -87,12 +71,6 @@ public class Verbs{
 		}
 	}
 
-	private static void southwest()
-	{
-		int[] xyz = Exe.getCoords();
-		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]--});
-	}
-
 	private static void west()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(3)){
@@ -102,12 +80,6 @@ public class Verbs{
 		else{
 			nope();
 		}
-	}
-
-	private static void northwest()
-	{
-		int[] xyz = Exe.getCoords();
-		Exe.setCoords(new int[] {xyz[0]--, xyz[1], xyz[2]++});
 	}
 
 	private static void up()
@@ -169,7 +141,7 @@ public class Verbs{
 	{
 		try
 		{
-			
+			System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i).getDescription());
 		}
 		catch (IllegalArgumentException ex)
 		{

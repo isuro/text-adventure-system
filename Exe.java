@@ -83,22 +83,22 @@ public class Exe{
     /**
     * @param x  the desired x coordinate.
     */
-    public static void setX(int x){
-        x = x;
+    public static void setX(int x2){
+        x = x2;
     }
 
     /**
     * @param y  the desired y coordinate.
     */
-    public static void setY(int y){
-        y = y;
+    public static void setY(int y2){
+        y = y2;
     }
 
     /**
     * @param z   the desired z coordinate.
     */
-    public static void setZ(int z){
-        z = z;
+    public static void setZ(int z2){
+        z = z2;
     }
 
     /**

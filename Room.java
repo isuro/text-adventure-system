@@ -9,7 +9,7 @@ public class Room{
 	private int yCoord;
 	private int zCoord;
 	private boolean[] exits = new boolean[6]; //list of exits
-	private ItemBag items; //list of items in the room
+	private ItemBag items = new ItemBag(); //list of items in the room
 	private String description; //base description of room
 
 	

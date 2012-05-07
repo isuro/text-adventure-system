@@ -3,7 +3,6 @@ import java.util.Enumeration;
 /**
 * Items are stored in a <code>Vector<Item></code>.
 * Operations are conducted using <code>Vector</code>'s built-in methods.
-* @see RoomBag
 */
 public class ItemBag
 {
@@ -83,7 +82,7 @@ public class ItemBag
 	{
 		int i = 0;
 		for (Enumeration<Item> e = items.elements(); e.hasMoreElements();)
-			if(e.nextElement().getName().equals(name))
+			if(e.nextElement().getName().toLowerCase().equals(name))
 				return items.elementAt(i);
 			i++;
 
