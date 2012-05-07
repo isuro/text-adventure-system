@@ -26,8 +26,7 @@ public class Verbs{
 			else if (i.equals("down") || i.equals("d")) {down();}
 			else if (i.equals("use")) {use(words);}
 			else if (i.equals("talk")) {talk(words);}
-			else if (i.equals("examineRoom") || i.equals("e")) {examineRoom(words);}
-			else if (i.equals("examineInventory") || i.equals("ei")) {examineInventory(words);}
+			else if (i.equals("examine") || i.equals("e")) {examine(words);}
 			else if (i.equals("look") || i.equals("l")) {look();}
 			else if (i.equals("inventory") || i.equals("i")) {inventory();}
 			else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
@@ -41,8 +40,9 @@ public class Verbs{
 	private static void north()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(0)){
-			int Z = Exe.getZ();
-			Exe.setZ(Z++);
+			int z = Exe.getZ();
+			Exe.setZ(z+1);
+			look();
 		}
 		else{
 			nope();
@@ -52,8 +52,9 @@ public class Verbs{
 	private static void east()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(2)){
-			int X = Exe.getX();
-			Exe.setX(X++);
+			int x = Exe.getX();
+			Exe.setX(x+1);
+			look();
 		}
 		else{
 			nope();
@@ -63,8 +64,9 @@ public class Verbs{
 	private static void south()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(1)){
-			int Z = Exe.getZ();
-			Exe.setZ(Z--);
+			int z = Exe.getZ();
+			Exe.setZ(z-1);
+			look();
 		}
 		else{
 			nope();
@@ -74,8 +76,9 @@ public class Verbs{
 	private static void west()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(3)){
-			int X = Exe.getX();
-			Exe.setX(X--);
+			int x = Exe.getX();
+			Exe.setX(x-1);
+			look();
 		}
 		else{
 			nope();
@@ -85,8 +88,9 @@ public class Verbs{
 	private static void up()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(4)){
-			int Y = Exe.getY();
-			Exe.setY(Y++);
+			int y = Exe.getY();
+			Exe.setY(y+1);
+			look();
 		}
 		else{
 			nope();
@@ -96,8 +100,9 @@ public class Verbs{
 	private static void down()
 	{
 		if(World.getRoom(Exe.getX(), Exe.getY(), Exe.getZ()).checkExit(5)){
-			int Y = Exe.getY();
-			Exe.setY(Y--);
+			int y = Exe.getY();
+			Exe.setY(y-1);
+			look();
 		}
 		else{
 			nope();
@@ -125,20 +130,13 @@ public class Verbs{
 		}
 	}
 
-	private static void examineInventory(String i)
+	private static void examine(String i)
 	{
 		try
 		{
 			System.out.println(Player.getInv().getItem(i).getDescription());
 		}
-		catch (IllegalArgumentException ex)
-		{
-			nope();
-		}
-	}
-
-	private static void examineRoom(String i)
-	{
+		catch (IllegalArgumentException ex) {}
 		try
 		{
 			System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i).getDescription());
@@ -146,7 +144,7 @@ public class Verbs{
 		catch (IllegalArgumentException ex)
 		{
 			nope();
-		} 	
+		} 
 	}
 
 	private static void look(){

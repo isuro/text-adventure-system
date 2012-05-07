@@ -69,12 +69,12 @@ public class World
     * Reads in the file defining the rooms in the world. 
     * File should be in the following format:
     * 
-    * "TOTALNUMBEROFROOMS 3<br />
-    * 1 1 # 1 # 1 # This is a description of room 1. # F # F # F # F # T # F<br />
-    * 2 1 # 2 # 1 # This is a description of room 2. # F # F # T # F # F # F<br />
-    * 3 2 # 2 # 1 # This is a description of room 3. # F # F # T # F # F # F<br />
+    * "TOTALNUMBEROFROOMS<br />
+    * 1 1 # 1 # 1 # This is a description of room 1. #F#F#F#F#T#F<br />
+    * 2 1 # 2 # 1 # This is a description of room 2. #F#F#T#F#F#F<br />
+    * 3 2 # 2 # 1 # This is a description of room 3. #F#F#T#F#F#F<br />
     * ...<br />
-    * 1000 x # y # z # This is a description of room 1000. # NExit # SExit # EExit # WExit # UpExit # DownExit"
+    * 1000 x # y # z # This is a description of room 1000. #NExit#SExit#EExit#WExit#UpExit#DownExit"
     * 
     * The first number is the room ID, and the last three numbers are the room's
     * x, y, and z coordinates, respectively. Worlds cannot exceed 1000 rooms 
@@ -143,13 +143,13 @@ public class World
             
 
             String description = scan.next();
-            boolean [] exits = new boolean [6];
+            boolean [] exits = new boolean[6];
             for (int j = 0; j < 6; j++)
             {
-                if (scan.next().compareTo(" T ") == 0)
-                    exits[j] = true;    
+                if (scan.next().compareTo("T") == 0)
+                    exits[j] = true;
             }
-            Room r = new Room (x, y, z, description, exits);
+            Room r = new Room(x, y, z, description, exits);
             return r;
         }
         else

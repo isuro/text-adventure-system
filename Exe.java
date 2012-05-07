@@ -6,7 +6,6 @@ public class Exe{
 	static int x = 1;
 	static int y = 1;
 	static int z = 1;
-    static int[][][] location;
     static World world;
     static Player player;
     static final String EOL = System.getProperty("line.separator");
@@ -84,21 +83,21 @@ public class Exe{
     * @param x  the desired x coordinate.
     */
     public static void setX(int x2){
-        x = x2;
+        Exe.x = x2;
     }
 
     /**
     * @param y  the desired y coordinate.
     */
     public static void setY(int y2){
-        y = y2;
+        Exe.y = y2;
     }
 
     /**
     * @param z   the desired z coordinate.
     */
     public static void setZ(int z2){
-        z = z2;
+        Exe.z = z2;
     }
 
     /**
