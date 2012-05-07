@@ -15,14 +15,15 @@ public class Exe{
     {
         world = world.getWorld();
         player = player.getPlayer();
-        System.out.println("Do you need some help getting started? (y/n)");
-        System.out.print(EOL + ">"); if(readInput().equals("y"))
-        {
-          System.out.println(
+
+        System.out.println(
             "Hello there. Welcome to Isaac and Alison's " + EOL +
             "Glorious Text Adventure For Great Victory (TM & C)!" + EOL +
             "To get started, please type your character's name.");
-          System.out.print(EOL + ">"); player.setName(readInput());
+        System.out.print(EOL + ">"); player.setName(readInput());
+        System.out.println(EOL + "Do you need some help getting started? (y/n)");
+        System.out.print(EOL + ">"); if(readInput().equals("y"))
+        {
           System.out.println(EOL +
             "Why hello there " + player.getName() + ". Why don't you " + EOL +
             "check out your surroundings by typing 'look'?");

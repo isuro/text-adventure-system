@@ -189,7 +189,7 @@ public class Verbs{
 	}
 
 	public static void nope(){
-		System.out.println("Huh?");
+		System.out.println("I can't do that, Dave.");
 	}
 	
 }
