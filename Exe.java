@@ -8,6 +8,7 @@ public class Exe{
 	static int z = 1;
     static World world;
     static Player player;
+    static Scanner scanno = new Scanner(System.in);
     static final String EOL = System.getProperty("line.separator");
 
     public static void main (String[] args)
@@ -105,7 +106,7 @@ public class Exe{
     */
     public static String readInput()
     {
-        return new Scanner(System.in).nextLine(); 
+        return scanno.nextLine(); 
     } 
     
    /**
@@ -113,11 +114,11 @@ public class Exe{
     * File should be in the following format:<br />
     * <br /><code>
     *  NAME#SCORE#CURRENTX#CURRENTY#CURRENTZ#NUMBERCURRENTITEMS#<br />
-    *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
-    *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
-    *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  nameOfItem1#This is a description of Item 1.#item1UseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3<br />
+    *  nameOfItem2#This is a description of Item 2.#item2UseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3<br />
+    *  nameOfItem3#This is a description of Item 3.#item3UseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3<br />
     * ...<br />
-    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3</code>
+    *  nameOfItemN#This is a description of Item N.#itemNUseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3</code>
     *
     * @param pathname    the path to a user-specified save file.
     */
@@ -155,6 +156,7 @@ public class Exe{
         }
 
         System.out.println("Loaded save file."); 
+        scanner.close();
       }
 
       catch (FileNotFoundException ex)
@@ -190,9 +192,11 @@ public class Exe{
            itemsUsedWith[j] = scan.next();  
         }
         Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
+        scan.close();
         return i;
     }
     else{
+        scan.close();
         return null;
     }
    }
