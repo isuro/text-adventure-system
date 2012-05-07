@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Verbs{
 
@@ -12,9 +13,11 @@ public class Verbs{
 		if (!input.equals("")) {
 			Scanner scan = new Scanner(input.toLowerCase());
 			String i = scan.next(); //first word
-			String words = ""; //remaining words
-			while(scan.hasNext()){words+= scan.next() + " ";}
-			System.out.println(EOL+EOL);
+			Vector<String> words = new Vector<String>(); //remaining words
+			if(!scan.hasNext()){words.add("");}
+			else{while(scan.hasNext()){words.add(scan.next());}}
+			scan.close();
+			System.out.println(EOL);
 
 			//The following act on the verb, passing arguments if necessary
 			//The string 'words' contains any arguments,
@@ -26,7 +29,7 @@ public class Verbs{
 			else if (i.equals("down") || i.equals("d")) {down();}
 			else if (i.equals("use")) {use(words);}
 			else if (i.equals("talk")) {talk(words);}
-			else if (i.equals("examine") || i.equals("e")) {examine(words);}
+			else if (i.equals("examine") || i.equals("x")) {examine(words);}
 			else if (i.equals("look") || i.equals("l")) {look();}
 			else if (i.equals("inventory") || i.equals("i")) {inventory();}
 			else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
@@ -109,16 +112,28 @@ public class Verbs{
 		}
 	}
 
-	private static void use(String i)
+	private static void use(Vector<String> i)
 	{
-		
+		try
+		{
+			System.out.println(Player.getInv().getItem(i.firstElement()).getUseEffect());
+		}
+		catch (IllegalArgumentException ex) {}
+		try
+		{
+			System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i.firstElement()).getUseEffect());
+		}
+		catch (IllegalArgumentException ex)
+		{
+			nope();
+		} 
 	}
 
-	private static void talk(String i)
+	private static void talk(Vector<String> i)
 	{
 		try {
-			if(Player.getInv().getItem(i).getCanTalk()) {
-				Player.getInv().getItem(i).talk();
+			if(Player.getInv().getItem(i.firstElement()).getCanTalk()) {
+				Player.getInv().getItem(i.firstElement()).talk();
 			}
 			else {
 				System.out.println("No response...");
@@ -130,16 +145,16 @@ public class Verbs{
 		}
 	}
 
-	private static void examine(String i)
+	private static void examine(Vector<String> i)
 	{
 		try
 		{
-			System.out.println(Player.getInv().getItem(i).getDescription());
+			System.out.println(Player.getInv().getItem(i.firstElement()).getDescription());
 		}
 		catch (IllegalArgumentException ex) {}
 		try
 		{
-			System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i).getDescription());
+			System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i.firstElement()).getDescription());
 		}
 		catch (IllegalArgumentException ex)
 		{
