@@ -112,22 +112,19 @@ public class Exe{
    /**
     * Reads in a file that contains information about the previous game session. 
     * File should be in the following format:<br />
-    * <br />
-    *  NAME someName#
-    *  SCORE someNumber#
-    *  CURRENTROOM someNumberX#someNumberY#someNumberZ#
-    *  NUMBERCURRENTITEMS someNumber#
+    * <br /><code>
+    *  NAME#SCORE#CURRENTX#CURRENTY#CURRENTZ#NUMBERCURRENTITEMS#<br />
     *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     * ...<br />
-    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3</code>
+    *  nameOfItemN # This is a description of Item N. # itemNUseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3</code>
     *
-    * @param pathname, the path to a user-specified save file.
+    * @param pathname    the path to a user-specified save file.
     */
-    public static void readSaveFile (String pathname)
-    {
-       try {
+   public static void readSaveFile (String pathname)
+   {
+     try {
         Scanner scanner = new Scanner(new File (pathname));
         scanner.useDelimiter("#");
 
@@ -159,12 +156,12 @@ public class Exe{
         }
 
         System.out.println("Loaded save file."); 
-       }
+      }
 
-       catch (FileNotFoundException ex)
-       {
+      catch (FileNotFoundException ex)
+      {
         System.out.println("File not found.");
-       }
+      }
     }
 
    /**
@@ -178,28 +175,28 @@ public class Exe{
     */
    public static Item processLine (String aLine)
    {
-        Scanner scan = new Scanner (aLine);
-        scan.useDelimiter("#");
+    Scanner scan = new Scanner (aLine);
+    scan.useDelimiter("#");
 
-        if (scan.hasNext())
-        {   
-            String itemName = scan.next().trim();
-            String itemDescription = scan.next().trim();
-            String itemUseEffect = scan.next().trim();
-            String numberOfItemsUsedWith = scan.next();
-            int numOfItemsUsedWith = Integer.parseInt(numberOfItemsUsedWith.trim());           
-            String [] itemsUsedWith = new String [numOfItemsUsedWith];
-            for (int j = 0; j < itemsUsedWith.length; j++)
-            {
-             itemsUsedWith[j] = scan.next();  
-            }
-            Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
-            return i;
+    if (scan.hasNext())
+    {   
+        String itemName = scan.next().trim();
+        String itemDescription = scan.next().trim();
+        String itemUseEffect = scan.next().trim();
+        String numberOfItemsUsedWith = scan.next();
+        int numOfItemsUsedWith = Integer.parseInt(numberOfItemsUsedWith.trim());           
+        String [] itemsUsedWith = new String [numOfItemsUsedWith];
+        for (int j = 0; j < itemsUsedWith.length; j++)
+        {
+           itemsUsedWith[j] = scan.next();  
         }
-        else{
-            return null;
-        }
+        Item i = new Item (itemName, itemDescription, itemUseEffect, itemsUsedWith);
+        return i;
     }
+    else{
+        return null;
+    }
+   }
 
     /**
     * Saves game data in proper save format. File is saved as "adventure_save.txt"
@@ -216,7 +213,7 @@ public class Exe{
         }
         catch (IOException io)
         {
-        System.out.println("Error saving game!");  
+            System.out.println("Error saving game!");  
         }
     }     
 }

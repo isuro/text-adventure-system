@@ -77,7 +77,7 @@ public class Player
 	/**
 	* Sets the player name to user-specified String.
 	*
-	* @param newName, the new name of the player
+	* @param newName the new name of the player
 	*/
 	public void setName(String newName)
 	{

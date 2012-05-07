@@ -70,9 +70,6 @@ public class Item
     * Creates an Item, even faster.
     *
     * @param itemName 				the item's full name.
-    * @param itemIDX				item's x-coordinate location.
-    * @param itemIDY				item's y-coordinate location.
-    * @param itemIDZ				item's z-coordinate location.
     * @param itemDescription 		the item's full description.
     * @param itemUseEffect 			the effect of using the item.
     * @param itemUsedWith 			a string array of things the item can be used with.
