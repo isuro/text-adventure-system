@@ -82,6 +82,9 @@ public class Item
 		usedWith = itemUsedWith;
 	}
 
+	public Item(){
+	}
+
 
 	/**
 	* @return the item's full name.
