@@ -36,6 +36,8 @@ public class Verbs{
 			else if (i.equals("inventory") || i.equals("i")) {inventory();}
 			else if (i.equals("exit") || i.equals("quit")) {System.exit(0);}
 			else if (i.equals("help") || i.equals("?")) {help();}
+			else if (i.equals("save") || i.equals("save game")){save();}
+			else if (i.equals("load") || i.equals("load game")){load();}
 			else {nope();}
 		}
 	}
@@ -176,7 +178,7 @@ public class Verbs{
 	}
 
 	private static void look(){
-		System.out.println(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).examineRoom());
+		World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).printRoom();
 	}
 
 	private static void inventory(){
@@ -191,6 +193,14 @@ public class Verbs{
 			"You can (use) an item, or (e)xamine one in your (i)nventory." + EOL +
 			"You can always take a (l)ook around, and if all else fails," + EOL +
 			"you can always (quit) and never, ever, ever come back.");
+	}
+
+	private static void save(){
+		Exe.saveFile();
+	}
+
+	private static void load(){
+		Exe.readSaveFile("adventure_save.txt");
 	}
 
 	public static void nope(){

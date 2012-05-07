@@ -8,12 +8,13 @@ public class Exe{
 	static int z = 1;
     static int[][][] location;
     static World world;
-    static String chName = "";
+    static Player player;
     static final String EOL = System.getProperty("line.separator");
 
     public static void main (String[] args)
     {
         world = world.getWorld();
+        player = player.getPlayer();
         System.out.println("Do you need some help getting started? (y/n)");
         System.out.print(EOL + ">"); if(readInput().equals("y"))
         {
@@ -21,9 +22,9 @@ public class Exe{
             "Hello there. Welcome to Isaac and Alison's " + EOL +
             "Glorious Text Adventure For Great Victory (TM & C)!" + EOL +
             "To get started, please type your character's name.");
-          System.out.print(EOL + ">"); chName = readInput();
+          System.out.print(EOL + ">"); player.setName(readInput());
           System.out.println(EOL +
-            "Why hello there " + chName + ". Why don't you " + EOL +
+            "Why hello there " + player.getName() + ". Why don't you " + EOL +
             "check out your surroundings by typing 'look'?");
           System.out.print(EOL + ">"); Verbs.parse(readInput());
           System.out.println(EOL +
@@ -38,13 +39,6 @@ public class Exe{
             System.out.println();
             System.out.print(">"); Verbs.parse(readInput());
         }
-    }
-
-    /**
-    * @return the player's name.
-    */
-    public static String getChName(){
-        return chName;
     }
 
     /**
@@ -112,26 +106,15 @@ public class Exe{
     */
     public static String readInput()
     {
-//      Scanner scan = new Scanner(System.in);
-//      String input = scan.nextLine();
         return new Scanner(System.in).nextLine(); 
-//      return input;
-
-//      while (scan.hasNext())
-//      	input += scan.next();
-//      	if (input != null)
-//       	  return input;
-//          else
-//       	  return null;	
-//
-
     } 
     
    /**
     * Reads in a file that contains information about the previous game session. 
     * File should be in the following format:<br />
     * <br />
-    * <code>SCORE someNumber<br />
+    *  NAME someName<br />
+    *  SCORE someNumber<br />
     *  CURRENTROOM someNumberX # someNumberY # someNumberZ<br />
     *  NUMBERCURRENTITEMS someNumber<br />
     *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
@@ -147,6 +130,7 @@ public class Exe{
        try {
         Scanner scanner = new Scanner(new File (pathname));
 
+        String name;
         int currentScore;
         int currentLocationX;
         int currentLocationY;
@@ -154,6 +138,7 @@ public class Exe{
         int numCurrentItems;
         ItemBag currentItems = new ItemBag();
 
+        name = scanner.next().trim();
         currentScore = scanner.nextInt(); 
         currentLocationX = scanner.nextInt();
         currentLocationY = scanner.nextInt();
@@ -209,14 +194,23 @@ public class Exe{
         }
     }
 
+    /**
+    * Saves game data in proper save format. File is saved as "adventure_save.txt"
+    */
     public static void saveFile ()
     {
-
+        try
+        {
+            FileWriter newSave = new FileWriter("adventure_save.txt");
+            BufferedWriter newSaveOut = new BufferedWriter(newSave);
+            newSaveOut.write(player.getName() + "\n" + player.getScore() + "\n" + getX() + " # " + getY() + " # " + getZ() + "\n" + player.getInv().getNumberOfItems()); 
+            newSaveOut.close();
+            System.out.println("Game saved.");
+        }
+        catch (IOException io)
+        {
+        System.out.println("Error saving game!");  
+        }
     }     
-
-    public static void addRoom (Room r)
-    {
-
-    }
 }
 

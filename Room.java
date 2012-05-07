@@ -127,6 +127,7 @@ public class Room{
 				System.out.println("Down");	
 			else
 				System.out.println("No exits. You're trapped!");
+		items.printItems();
 	}
 
 }

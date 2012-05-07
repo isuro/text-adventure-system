@@ -46,11 +46,9 @@ public class ItemBag
 		}                
 	}
 
-	public int countItems()
+	public int getNumberOfItems()
 	{
-
 		return items.size();
-
 	}
 
 	/**
