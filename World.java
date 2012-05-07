@@ -160,11 +160,11 @@ public class World
     * Reads in a file that contains information about the objects contained within the world.
     * File should be in the following format:<br />
     * <br /><code>
-    *  NUMBEROFITEMS nameOfItem1 # item1IDX # item1IDY # item1IDZ # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
-    *  nameOfItem2 # item2IDX # item2IDY # item2IDZ # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
-    *  nameOfItem3 # item3IDX # item3IDY # item3IDZ # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
+    *  NUMBEROFITEMS nameOfItem1#item1IDX#item1IDY#item1IDZ#This is a description of Item 1.#item1UseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3<br />
+    *  nameOfItem2#item2IDX#item2IDY#item2IDZ#This is a description of Item 2.#item2UseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3<br />
+    *  nameOfItem3#item3IDX#item3IDY#item3IDZ#This is a description of Item 3.#item3UseEffect#NUMBEROFITEMSUSEDWITH#someItem1#someItem2#someItem3<br />
     * ...<br />
-    *  nameOfItemN # itemNIDX # itemNIDY # itemNIDZ # This is a description of Item N. # itemNUseEffect # someItem1 # someItem2 # someItem3</code>
+    *  nameOfItemN#itemNIDX#itemNIDY#itemNIDZ#This is a description of Item N.#itemNUseEffect#someItem1#someItem2#someItem3</code>
     * 
     * @param pathname the path to a user-specified object file.
     */
