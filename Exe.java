@@ -129,23 +129,30 @@ public class Exe{
     {
        try {
         Scanner scanner = new Scanner(new File (pathname));
+        scanner.useDelimiter("#");
 
         String name;
-        int currentScore;
-        int currentLocationX;
-        int currentLocationY;
-        int currentLocationZ;
-        int numCurrentItems;
+        String currentScore;
+        String currentLocationX;
+        String currentLocationY;
+        String currentLocationZ;
+        String numCurrentItems;
         ItemBag currentItems = new ItemBag();
 
         name = scanner.next().trim();
-        currentScore = scanner.nextInt(); 
-        currentLocationX = scanner.nextInt();
-        currentLocationY = scanner.nextInt();
-        currentLocationZ = scanner.nextInt();
-        numCurrentItems = scanner.nextInt();
+        currentScore = scanner.next().trim(); 
+        currentLocationX = scanner.next().trim();
+        currentLocationY = scanner.next().trim();
+        currentLocationZ = scanner.next().trim();
+        numCurrentItems = scanner.next().trim();
 
-        for (int i = 0; i < numCurrentItems; i++)
+        int score = Integer.parseInt(currentScore);
+        int locX = Integer.parseInt(currentLocationX);
+        int locY = Integer.parseInt(currentLocationY);
+        int locZ = Integer.parseInt(currentLocationZ);
+        int numItems = Integer.parseInt(numCurrentItems);
+
+        for (int i = 0; i < numItems; i++)
         {
             Item item = processLine(scanner.nextLine());
             currentItems.addItem(item);
@@ -203,7 +210,7 @@ public class Exe{
         {
             FileWriter newSave = new FileWriter("adventure_save.txt");
             BufferedWriter newSaveOut = new BufferedWriter(newSave);
-            newSaveOut.write(player.getName() + "\n" + player.getScore() + "\n" + getX() + " # " + getY() + " # " + getZ() + "\n" + player.getInv().getNumberOfItems()); 
+            newSaveOut.write(player.getName() + "#" + player.getScore() + "#" + getX() + "#" + getY() + "#" + getZ() + "#" + player.getInv().getNumberOfItems()); 
             newSaveOut.close();
             System.out.println("Game saved.");
         }
