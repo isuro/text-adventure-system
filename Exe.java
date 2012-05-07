@@ -113,10 +113,10 @@ public class Exe{
     * Reads in a file that contains information about the previous game session. 
     * File should be in the following format:<br />
     * <br />
-    *  NAME someName<br />
-    *  SCORE someNumber<br />
-    *  CURRENTROOM someNumberX # someNumberY # someNumberZ<br />
-    *  NUMBERCURRENTITEMS someNumber<br />
+    *  NAME someName#
+    *  SCORE someNumber#
+    *  CURRENTROOM someNumberX#someNumberY#someNumberZ#
+    *  NUMBERCURRENTITEMS someNumber#
     *  nameOfItem1 # This is a description of Item 1. # item1UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem2 # This is a description of Item 2. # item2UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />
     *  nameOfItem3 # This is a description of Item 3. # item3UseEffect # NUMBEROFITEMSUSEDWITH # someItem1 # someItem2 # someItem3<br />

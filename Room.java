@@ -112,22 +112,41 @@ public class Room{
 		System.out.println("Room located at: " + xCoord + ", " + yCoord + ", " + zCoord);
 		System.out.println("Room description: " + description);
 		System.out.println("Exits at: ");
-		for (int i = 0; i < 6; i++)
-			if (exits[0] == true)
-				System.out.println("North");
-			if (exits[1] == true)
-				System.out.println("South");
-			if (exits[2] == true)
-				System.out.println("East");
-			if (exits[3] == true)
-				System.out.println("West");
-			if (exits[4] == true)
-				System.out.println("Up");
-			if (exits[5] == true)
-				System.out.println("Down");	
-			else
-				System.out.println("No exits. You're trapped!");
-		items.printItems();
+
+		boolean exitsExist = false;
+		if (exits[0] == true)
+		{
+			System.out.println("North");
+			exitsExist = true;	
+		}			
+		if (exits[1] == true)
+		{
+			System.out.println("South");
+			exitsExist = true;
+		}
+		if (exits[2] == true)
+		{
+			System.out.println("East");
+			exitsExist = true;
+		}
+		if (exits[3] == true)
+		{
+			System.out.println("West");
+			exitsExist = true;
+		}
+		if (exits[4] == true)
+		{
+			System.out.println("Up");
+			exitsExist = true;
+		}
+		if (exits[5] == true)
+		{
+			System.out.println("Down");
+			exitsExist = true;
+		}
+		if (exitsExist = false)
+			System.out.println("No exits. You're trapped!");
+		items.printRoomItems();
 	}
 
 }

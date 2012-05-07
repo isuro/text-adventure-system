@@ -34,10 +34,32 @@ public class ItemBag
 	public void printItems()
 	{ 
 		if (items.size() == 0)
-			System.out.println("\n You have no items :(");
+			System.out.println("You have no items :(");
 		else
 		{
-			System.out.println("\n You currently have "+ items.size() +" items:");
+			System.out.println("You currently have "+ items.size() +" items:");
+            for (Enumeration<Item> e = items.elements(); e.hasMoreElements();)
+            	System.out.println(e.nextElement()+ " ");
+			// for (int i = 0; i < items.size(); i++)
+			// 	System.out.println(items.elementAt(i)+ " ");
+			System.out.println();
+		}                
+	}
+
+	/**
+	* Prints out items contained in room.
+	* There are two possible outputs:<br />
+	* <code>There are no items in this room</code><br />
+	* or <br />
+	* <code>There are <i>x</i> items in this room: <i>item1 item2 item3 etc.</i></code>
+	*/
+	public void printRoomItems()
+	{ 
+		if (items.size() == 0)
+			System.out.println("There are no items in this room.");
+		else
+		{
+			System.out.println("There are "+ items.size() +" items in this room:");
             for (Enumeration<Item> e = items.elements(); e.hasMoreElements();)
             	System.out.println(e.nextElement()+ " ");
 			// for (int i = 0; i < items.size(); i++)
