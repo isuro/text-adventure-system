@@ -80,21 +80,21 @@ public class Exe{
     }
 
     /**
-    * @param x  the desired x coordinate.
+    * @param x2  the desired x coordinate.
     */
     public static void setX(int x2){
         Exe.x = x2;
     }
 
     /**
-    * @param y  the desired y coordinate.
+    * @param y2  the desired y coordinate.
     */
     public static void setY(int y2){
         Exe.y = y2;
     }
 
     /**
-    * @param z   the desired z coordinate.
+    * @param z2   the desired z coordinate.
     */
     public static void setZ(int z2){
         Exe.z = z2;
