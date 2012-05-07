@@ -81,11 +81,15 @@ public class ItemBag
 	public Item getItem(String name) throws	IllegalArgumentException
 	{
 		int i = 0;
-		for (Enumeration<Item> e = items.elements(); e.hasMoreElements();)
-			if(e.nextElement().getName().toLowerCase().equals(name))
+		String itemName = "";
+		Item nextItem = new Item();
+		for (Enumeration<Item> e = items.elements(); e.hasMoreElements();){
+			nextItem = e.nextElement();
+			itemName = nextItem.getName().toLowerCase();
+			if(itemName.equals(name))
 				return items.elementAt(i);
 			i++;
-
+		}
 		throw new IllegalArgumentException("No such item!");
 	}
 
