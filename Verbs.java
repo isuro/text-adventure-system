@@ -184,7 +184,7 @@ public class Verbs{
 			"Here's what you can do: (type indicated letter or full word)" + EOL +
 			"You can go (n)orth, (s)outh, (e)ast, or (w)est." + EOL +
 			"Sometimes, you can even go (u)p or (d)own." + EOL +
-			"You can (use) an item, or (e)xamine one in your (i)nventory." + EOL +
+			"You can (use) an item, or e(x)amine one in your (i)nventory." + EOL +
 			"You can always take a (l)ook around, and if all else fails," + EOL +
 			"you can always (quit) and never, ever, ever come back.");
 	}
