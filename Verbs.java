@@ -139,6 +139,15 @@ public class Verbs{
 				System.out.println("No response...");
 			}
 		}
+		catch (IllegalArgumentException ex) {}
+		try {
+			if(World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i.firstElement()).getCanTalk()) {
+				World.getRoom(Exe.getX(),Exe.getY(),Exe.getZ()).getItems().getItem(i.firstElement()).talk();
+			}
+			else {
+				System.out.println("No response...");
+			}
+		}
 		catch (IllegalArgumentException ex)
 		{
 			nope();
